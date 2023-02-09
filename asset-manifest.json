@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/server_fsc/static/css/main.073c9b0a.css",
-    "main.js": "/server_fsc/static/js/main.58298260.js",
-    "static/js/787.3dcbca77.chunk.js": "/server_fsc/static/js/787.3dcbca77.chunk.js",
-    "static/media/logo.svg": "/server_fsc/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/server_fsc/static/css/main.a1a05540.css",
+    "main.js": "/server_fsc/static/js/main.719724f1.js",
+    "static/media/белая_шестерёнка.png": "/server_fsc/static/media/белая_шестерёнка.94d4d5701514ce6370fc.png",
+    "static/media/бключ.png": "/server_fsc/static/media/бключ.b482bb0425f36a789e60.png",
     "index.html": "/server_fsc/index.html",
-    "main.073c9b0a.css.map": "/server_fsc/static/css/main.073c9b0a.css.map",
-    "main.58298260.js.map": "/server_fsc/static/js/main.58298260.js.map",
-    "787.3dcbca77.chunk.js.map": "/server_fsc/static/js/787.3dcbca77.chunk.js.map"
+    "main.a1a05540.css.map": "/server_fsc/static/css/main.a1a05540.css.map",
+    "main.719724f1.js.map": "/server_fsc/static/js/main.719724f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.58298260.js"
+    "static/css/main.a1a05540.css",
+    "static/js/main.719724f1.js"
   ]
 }
