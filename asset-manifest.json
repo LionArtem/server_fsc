@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/server_fsc/static/css/main.a1a05540.css",
-    "main.js": "/server_fsc/static/js/main.719724f1.js",
+    "main.css": "/server_fsc/static/css/main.c5b6923b.css",
+    "main.js": "/server_fsc/static/js/main.201a304e.js",
     "static/media/белая_шестерёнка.png": "/server_fsc/static/media/белая_шестерёнка.94d4d5701514ce6370fc.png",
     "static/media/бключ.png": "/server_fsc/static/media/бключ.b482bb0425f36a789e60.png",
     "index.html": "/server_fsc/index.html",
-    "main.a1a05540.css.map": "/server_fsc/static/css/main.a1a05540.css.map",
-    "main.719724f1.js.map": "/server_fsc/static/js/main.719724f1.js.map"
+    "main.c5b6923b.css.map": "/server_fsc/static/css/main.c5b6923b.css.map",
+    "main.201a304e.js.map": "/server_fsc/static/js/main.201a304e.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1a05540.css",
-    "static/js/main.719724f1.js"
+    "static/css/main.c5b6923b.css",
+    "static/js/main.201a304e.js"
   ]
 }
