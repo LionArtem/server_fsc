@@ -23,6 +23,8 @@ body {
 
 @import url(../blocks/animation/animetion.css);
 
+@import url(../blocks/main/main.css);
+
 @import url(../blocks/navigation/navigation.css);
 @import url(../blocks/navigation/__cards/navigation__cards.css);
 @import url(../blocks/navigation/__card/navigation__card.css);
