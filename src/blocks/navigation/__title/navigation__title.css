@@ -10,7 +10,7 @@
 
 .navigation__title::before {
   content:"";
-  background-image: url(../../../../public/image/бключ.png);
+  background-image: url(../../../image/бключ.png);
   width: 20px;
   height: 20px;
   background-size: contain;
