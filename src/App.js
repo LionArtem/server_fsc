@@ -2,9 +2,9 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './peges/Home';
 import { Routes, Route } from 'react-router-dom';
-import ChargeYard from './components/pagesNavigation/ChargeYard/index.jsx';
+import ChargeYard from './components/pagesNavigation/ChargeYard/ChargeYard.jsx';
 import NodFound from './peges/nodFound';
-import CokeRumble from './components/pagesNavigation/ChargeYard/CokeRumble/CokeRumble';
+import CokeRumble from './components/pagesNavigation/ChargeYard/NodeScatter/CokeRumble.jsx';
 
 function App() {
   return (

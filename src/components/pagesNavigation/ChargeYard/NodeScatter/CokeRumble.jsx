@@ -30,9 +30,9 @@ export default function CokeRumble() {
           <li className="">Забрать ключ бирку</li>
           <li className="">Разобрать схему</li>
         </ul>
-        <button className="job-description__button-comment" type="button">
+        {/* <button className="job-description__button-comment" type="button">
           Комментарии
-        </button>
+        </button> */}
       </div>
     </section>
   );

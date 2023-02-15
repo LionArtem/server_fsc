@@ -16,6 +16,8 @@
 
 @import url(../blocks/main/main.css);
 
+@import url(../blocks/header-department/header-department.css);
+
 @import url(../blocks/navigation/navigation.css);
 @import url(../blocks/navigation/__cards/navigation__cards.css);
 @import url(../blocks/navigation/__card/navigation__card.css);
