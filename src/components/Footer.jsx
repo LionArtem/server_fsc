@@ -7,6 +7,7 @@ function Footer() {
           className="footer__link-vk"
           href="https://vk.com/id82204125"
           target="_blank"
+          rel="noreferrer"
         >
           (Вконтакте)
         </a>

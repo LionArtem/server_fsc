@@ -1,28 +1,20 @@
 import Footer from './components/Footer';
 import Header from './components/Header';
-import NavigationListLinks from './components/NavigationListLinks';
+import Home from './peges/Home';
+import { Routes, Route } from 'react-router-dom';
+import ChargeYard from './components/pagesNavigation/ChargeYard/index.jsx';
+import NodFound from './peges/nodFound';
 
 function App() {
   return (
     <div className="page">
       <Header />
       <main className="main">
-        <section className="navigation">
-          <nav>
-            <ul className="navigation__list">
-              <NavigationListLinks title="1-ое отделение" />
-              <NavigationListLinks title="2-ое отделение" />
-              <NavigationListLinks title="3-ие отделение" />
-              <NavigationListLinks title="Шихтовый двор" />
-              <NavigationListLinks title="РММ 1-го отделения" />
-              <NavigationListLinks title="Участок производства порашковой проволоки" />
-              <NavigationListLinks title="Газоочистка 1-го отделения" />
-              <NavigationListLinks title="РММ 3-го отделения" />
-              <NavigationListLinks title="Газоочистка 3-го отделения" />
-              <NavigationListLinks title="Насосная оборотного цыкла" />
-            </ul>
-          </nav>
-        </section>
+        <Routes>
+          <Route path="/server_fsc" element={<Home />} />
+          <Route path="/one_branch" element={<ChargeYard />} />
+          <Route path="*" element={<NodFound />} />
+        </Routes>
       </main>
       <Footer />
     </div>

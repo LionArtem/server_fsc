@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
+
 function NavigationListLinks(props) {
-  const { title } = props;
+  
+  const { title,link } = props;
+
   return (
     <li className="navigation__title">
-      <a className="navigation__list-links" href="">
+      <Link to={link} className="navigation__list-links">
         <h2 className="navigation__text">{title}.</h2>
-      </a>
+      </Link>
     </li>
   );
 }
