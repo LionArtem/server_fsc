@@ -15,16 +15,27 @@
     bottom: 0px;
     right: 0px;
     z-index: -1;
-    animation: opacityList .4s linear ;
+    animation: opacityList 0.4s linear;
   }
-  div {
+  .search_conteiner_found {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(118, 117, 117);
     img {
       width: 20px;
+      height: 20px;
     }
+
+    @media screen and (max-width: 400px) {
+      img {
+        width: 15px;
+      }
+    }
+
     input {
       all: unset;
-      border-bottom: 1px solid rgb(118, 117, 117);
+
       margin: 5px 0 5px 10px;
       min-height: 40px;
       font-size: 30px;
@@ -33,6 +44,17 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+    }
+    @media screen and (max-width: 640px) {
+      input {
+        font-size: 20px;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      input {
+        margin-left: 2px;
+      }
     }
   }
 
@@ -50,7 +72,7 @@
     border-radius: 5px;
     cursor: pointer;
 
-    div {
+    .button {
       margin: auto;
       font-size: 25px;
     }
@@ -61,21 +83,33 @@
   }
 }
 
+@media screen and (max-width: 640px) {
+  .search_conteiner {
+    max-width: 350px;
+  }
+}
+
 @keyframes opacityList {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
-} 
+}
 
-.nod_found{
+.nod_found {
   text-align: center;
   color: rgb(237, 164, 164);
   margin: 0;
   font-size: 15px;
-  animation: opacityList 1s linear ;
+  animation: opacityList 1s linear;
+}
+
+@media screen and (max-width: 640px) {
+  .nod_found {
+    font-size: 10px;
+  }
 }
 
 .search_list_conteiner {
@@ -84,10 +118,12 @@
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
-  width: 400px;
+  width: 80%;
   color: rgb(255, 255, 255);
-  animation: opacityList 1s linear ;
+  animation: opacityList 1s linear;
   ul {
+    all: unset;
+    text-align: center;
     display: flex;
     flex-direction: column;
     li {
@@ -99,10 +135,23 @@
       font-size: 23px;
       border-radius: 5px;
     }
+
+    @media screen and (max-width: 640px) {
+      li {
+        font-size: 15px;
+      }
+    }
+
     li:hover {
       border-bottom: rgb(255, 255, 255) solid 1px;
       background-color: rgba(201, 190, 190, 0.435);
-      transition: visibility .2s, background-color .2s linear;
+      transition: visibility 0.2s, background-color 0.2s linear;
     }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .search_list_conteiner {
+    top: 30px;
   }
 }

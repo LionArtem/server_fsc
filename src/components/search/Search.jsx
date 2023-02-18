@@ -37,7 +37,7 @@ export default function Search() {
           className={style.overflow}
         ></div>
       )}
-      <div>
+      <div className={style.search_conteiner_found}>
         <img src={Found} alt="поиск" />
         <input
           value={inputValue}
@@ -54,7 +54,7 @@ export default function Search() {
 
       {botton && !!matches.length && (
         <Link to={matches[0].item.link}>
-          <div onClick={() => offEarch()}>Найти</div>
+          <div className={style.button} onClick={() => offEarch()}>Найти</div>
         </Link>
       )}
       {inputValue.length > 0 && !matches.length && (
