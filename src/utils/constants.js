@@ -3,7 +3,7 @@ const navigationList = [
   { title: '2-ое отделение', link: '/' },
   { title: '3-ие отделение', link: '/' },
   { title: 'Шихтовый двор', link: '/one_branch' },
-  { title: 'РММ 1-го отделения', link: '' },
+  { title: 'РММ 1-го отделения', link: '/' },
   { title: 'Участок производства порашковой проволоки', link: '/' },
   { title: 'Газоочистка 1-го отделения', link: '/' },
   { title: 'РММ 3-го отделения', link: '/' },
@@ -38,10 +38,15 @@ const navigationСonveyor = [
   'Конвеер 4',
 ];
 
+const searchList = [
+  { value: 'замена сетки на грохоте кокса', link: '/coke-rumble' },
+];
+
 export {
   navigationList,
   navigationNodeScatter,
   navigationGPM,
   navigationСrusher,
   navigationСonveyor,
+  searchList,
 };

@@ -1,0 +1,108 @@
+.search_conteiner {
+  margin: 5px auto;
+  width: 100%;
+  max-width: 450px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  .overflow {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+    animation: opacityList .4s linear ;
+  }
+  div {
+    display: flex;
+    img {
+      width: 20px;
+    }
+    input {
+      all: unset;
+      border-bottom: 1px solid rgb(118, 117, 117);
+      margin: 5px 0 5px 10px;
+      min-height: 40px;
+      font-size: 30px;
+      color: white;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  a {
+    all: unset;
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    color: rgb(118, 117, 117);
+    display: flex;
+    min-width: 150px;
+    min-height: 40px;
+    margin: auto;
+    border: rgb(118, 117, 117) solid 2px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    div {
+      margin: auto;
+      font-size: 25px;
+    }
+  }
+  a:hover {
+    color: rgb(224, 208, 208);
+    border: rgb(224, 208, 208) solid 2px;
+  }
+}
+
+@keyframes opacityList {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+} 
+
+.nod_found{
+  text-align: center;
+  color: rgb(237, 164, 164);
+  margin: 0;
+  font-size: 15px;
+  animation: opacityList 1s linear ;
+}
+
+.search_list_conteiner {
+  position: relative;
+  top: 45px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  width: 400px;
+  color: rgb(255, 255, 255);
+  animation: opacityList 1s linear ;
+  ul {
+    display: flex;
+    flex-direction: column;
+    li {
+      all: unset;
+      cursor: pointer;
+      border-bottom: rgb(224, 208, 208) solid 1px;
+      margin: 5px;
+      padding: 5px;
+      font-size: 23px;
+      border-radius: 5px;
+    }
+    li:hover {
+      border-bottom: rgb(255, 255, 255) solid 1px;
+      background-color: rgba(201, 190, 190, 0.435);
+      transition: visibility .2s, background-color .2s linear;
+    }
+  }
+}

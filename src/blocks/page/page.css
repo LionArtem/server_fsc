@@ -9,7 +9,7 @@
   font-family: 'Unbounded', Arial, Helvetica, sans-serif;
   opacity: 0.9;
   display: grid;
-  grid-template-rows: min-content auto min-content;
+  grid-template-rows: min-content min-content auto min-content;
   min-height: 100vh;
   box-sizing: border-box;
 }
