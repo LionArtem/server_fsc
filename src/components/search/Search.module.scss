@@ -60,9 +60,9 @@
 
   a {
     all: unset;
-    position: absolute;
-    top: 50px;
-    left: 150px;
+    position: relative;
+    top: 25px;
+    margin: 0 auto;
     color: rgb(118, 117, 117);
     display: flex;
     min-width: 150px;
@@ -76,12 +76,30 @@
       margin: auto;
       font-size: 25px;
     }
+
+    @media screen and (max-width: 640px) {
+      .button {
+        font-size: 15px;
+      }
+    }
   }
   a:hover {
     color: rgb(224, 208, 208);
     border: rgb(224, 208, 208) solid 2px;
   }
+
+  @media screen and (max-width: 640px) {
+    a {
+      top: 15px;
+      min-width: 100px;
+      min-height: 30px;
+    }
+  }
+
+
 }
+
+
 
 @media screen and (max-width: 640px) {
   .search_conteiner {
