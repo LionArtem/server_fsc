@@ -10,6 +10,7 @@ import Found from '../../image/search.svg';
 
 export default function Search() {
   const [inputValue, setInputValue] = React.useState('');
+  console.log(inputValue);
 
   const [botton, setBotton] = React.useState(false);
 
@@ -31,7 +32,7 @@ export default function Search() {
 
   return (
     <div className={style.search_conteiner}>
-      {matches.length > 0 && (
+      {inputValue.length > 0 &&  (
         <div
           onClick={(evt) => closeOverley(evt)}
           className={style.overflow}
@@ -54,7 +55,14 @@ export default function Search() {
 
       {botton && !!matches.length && (
         <Link to={matches[0].item.link}>
-          <div className={style.button} onClick={() => offEarch()}>Найти</div>
+          <div
+            className={style.button}
+            onClick={() => {
+              offEarch();
+            }}
+          >
+            Найти
+          </div>
         </Link>
       )}
       {inputValue.length > 0 && !matches.length && (
