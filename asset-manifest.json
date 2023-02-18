@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/server_fsc/static/css/main.4a52fc89.css",
-    "main.js": "/server_fsc/static/js/main.8275653b.js",
+    "main.css": "/server_fsc/static/css/main.865aa5d4.css",
+    "main.js": "/server_fsc/static/js/main.46ba3b83.js",
     "static/media/белая_шестерёнка.png": "/server_fsc/static/media/белая_шестерёнка.94d4d5701514ce6370fc.png",
     "static/media/grid.jpg": "/server_fsc/static/media/grid.ec79bb354a1cf25024c2.jpg",
     "static/media/бключ.png": "/server_fsc/static/media/бключ.b482bb0425f36a789e60.png",
     "index.html": "/server_fsc/index.html",
-    "main.4a52fc89.css.map": "/server_fsc/static/css/main.4a52fc89.css.map",
-    "main.8275653b.js.map": "/server_fsc/static/js/main.8275653b.js.map"
+    "static/media/search.svg": "/server_fsc/static/media/search.48c52bf5d459537e27c07f88eb08c050.svg",
+    "main.865aa5d4.css.map": "/server_fsc/static/css/main.865aa5d4.css.map",
+    "main.46ba3b83.js.map": "/server_fsc/static/js/main.46ba3b83.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a52fc89.css",
-    "static/js/main.8275653b.js"
+    "static/css/main.865aa5d4.css",
+    "static/js/main.46ba3b83.js"
   ]
 }
