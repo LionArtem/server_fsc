@@ -1,4 +1,5 @@
 import Grid from '../image/grid.jpg';
+import Сlamp from '../image/clamp.png';
 
 const navigationList = [
   { title: '1-ое отделение', link: '/' },
@@ -88,8 +89,8 @@ const ropeReplacement = {
     { title: 'Канат: диаметр 24мм,длинна 40м', src: '', alt: '' },
     {
       title: 'Размеры жимка:130мм Х 50 мм ,по центрам отверстий 80мм',
-      src: '',
-      alt: '',
+      src: Сlamp,
+      alt: 'хомут',
     },
   ],
   tools: [{ title: 'Ключи 22-24' }, { title: 'Молоток' }],
