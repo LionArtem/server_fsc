@@ -10,7 +10,6 @@ import Found from '../../image/search.svg';
 
 export default function Search() {
   const [inputValue, setInputValue] = React.useState('');
-  console.log(inputValue);
 
   const [botton, setBotton] = React.useState(false);
 
@@ -32,7 +31,7 @@ export default function Search() {
 
   return (
     <div className={style.search_conteiner}>
-      {inputValue.length > 0 &&  (
+      {inputValue.length > 0 && (
         <div
           onClick={(evt) => closeOverley(evt)}
           className={style.overflow}

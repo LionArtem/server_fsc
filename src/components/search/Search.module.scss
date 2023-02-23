@@ -63,7 +63,7 @@
     position: relative;
     top: 25px;
     margin: 0 auto;
-    color: rgb(118, 117, 117);
+    color: white;
     display: flex;
     min-width: 150px;
     min-height: 40px;
@@ -83,8 +83,7 @@
       }
     }
   }
-  a:hover {
-    color: rgb(224, 208, 208);
+  a:focus {
     border: rgb(224, 208, 208) solid 2px;
   }
 
