@@ -16,6 +16,7 @@ import {
   stoveNumberFive,
   meshReplacement,
   ropeReplacement,
+  beltReplacement
 } from './utils/constants';
 import Description from './components/Department/Node/Description';
 
@@ -23,10 +24,11 @@ function App() {
   return (
     <div className="page">
       <Header />
-      <Search />
+
       <main className="main">
+        <Search />
         <Routes>
-          <Route path="/server_fsc" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/charge_yard"
             element={<Department title="Шихтовый двор" list={chargeYardList} />}
@@ -41,10 +43,27 @@ function App() {
               />
             }
           />
-          <Route
+           <Route
             path="/mesh-replacement"
             element={<Description listJob={meshReplacement} />}
           />
+
+          <Route
+            path="/four-crusher"
+            element={
+              <Node
+                job="Замена ремней"
+                link={'/belt-replacement'}
+                titleNode="4-х волковая дробилка"
+              />
+            }
+          />
+            <Route
+            path="/belt-replacement"
+            element={<Description listJob={beltReplacement} />}
+          />
+
+         
           <Route
             path="/one_department"
             element={<Department title="Печь №5" list={stoveNumberFive} />}
