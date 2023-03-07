@@ -28,7 +28,7 @@ function App() {
       <main className="main">
         <Search />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/server_fsc" element={<Home />} />
           <Route
             path="/charge_yard"
             element={<Department title="Шихтовый двор" list={chargeYardList} />}

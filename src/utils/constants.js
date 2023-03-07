@@ -123,6 +123,10 @@ const searchList = [
     value: 'замена каната(тросса) на лебёдке отката ковшевоза ',
     link: '/rope-replacement',
   },
+  {
+    value: 'замена ремней на 4х (четырёх) волковой дробилке',
+    link: '/belt-replacement',
+  },
 ];
 
 export {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function Header() {
   return (
     <header className="header">
-      <Link to="/" className="header__link">
+      <Link to="/server_fsc" className="header__link">
         <h1 className="header__title">
           Этот сайт создан что бы облегчить жизнь слесаря.
         </h1>
