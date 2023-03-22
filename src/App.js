@@ -15,8 +15,9 @@ import {
   chargeYardList,
   stoveNumberFive,
   meshReplacement,
-  ropeReplacement,
-  beltReplacement
+  winchRopeReplacement,
+  beltReplacement,
+  ropeReplacement17684,
 } from './utils/constants';
 import Description from './components/Department/Node/Description';
 
@@ -43,7 +44,7 @@ function App() {
               />
             }
           />
-           <Route
+          <Route
             path="/mesh-replacement"
             element={<Description listJob={meshReplacement} />}
           />
@@ -58,12 +59,11 @@ function App() {
               />
             }
           />
-            <Route
+          <Route
             path="/belt-replacement"
             element={<Description listJob={beltReplacement} />}
           />
 
-         
           <Route
             path="/one_department"
             element={<Department title="Печь №5" list={stoveNumberFive} />}
@@ -73,14 +73,28 @@ function App() {
             element={
               <Node
                 job="Замена каната"
-                link={'/rope-replacement'}
+                link={'/winch-rope-replacement'}
                 titleNode="Лебедка подката"
               />
             }
           />
           <Route
-            path="/rope-replacement"
-            element={<Description listJob={ropeReplacement} />}
+            path="/winch-rope-replacement"
+            element={<Description listJob={winchRopeReplacement} />}
+          />
+          <Route
+            path="/17684"
+            element={
+              <Node
+                job="Замена каната(большой подъём)"
+                link={'/17684-rope-replacement'}
+                titleNode="Кран №17684"
+              />
+            }
+          />
+          <Route
+            path="/17684-rope-replacement"
+            element={<Description listJob={ropeReplacement17684} />}
           />
           <Route path="*" element={<NodFound />} />
         </Routes>

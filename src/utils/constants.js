@@ -1,5 +1,6 @@
 import Grid from '../image/grid.jpg';
 import Сlamp from '../image/clamp.png';
+import Tap17684 from '../image/17684.jpg';
 
 const navigationList = [
   { title: '1-ое отделение', link: '*' },
@@ -97,9 +98,13 @@ const stoveNumberFive = [
     ],
     subTitle: 'Ковшевоз',
   },
+  {
+    list: [{ title: 'Кран №17684(новый разливочный)', link: '/17684' }],
+    subTitle: 'ГПМ',
+  },
 ];
 
-const ropeReplacement = {
+const winchRopeReplacement = {
   description: [
     { title: 'Канат: диаметр 24мм,длинна 40м', src: '', alt: '' },
     {
@@ -117,6 +122,25 @@ const ropeReplacement = {
   ],
 };
 
+const ropeReplacement17684 = {
+  description: [
+    { title: 'Канат: диаметр 17мм,длинна ?м', src: '', alt: '' },
+    {
+      title: 'Схема запасовки',
+      src: Tap17684,
+      alt: 'схема',
+    },
+  ],
+  tools: [{ title: 'Ключи 32' }, { title: 'Отрезная машинка' }],
+  spareParts: [{ title: 'Вязальная проволока' }],
+  sIZ: [{ title: 'Распиратор' }, { title: 'Страховочная привязь' }],
+  safetyPrecautions: [
+    { title: 'Забрать ключ бирку' },
+    { title: 'Разобрать схему' },
+    { title: 'Оформить наряд допуска' },
+  ],
+};
+
 const searchList = [
   { value: 'замена сетки на грохоте кокса', link: '/mesh-replacement' },
   {
@@ -127,6 +151,10 @@ const searchList = [
     value: 'замена ремней на 4х (четырёх) волковой дробилке',
     link: '/belt-replacement',
   },
+  {
+    value: 'замена тросса(каната) на большом подъеме (кран №17684)',
+    link: '/17684-rope-replacement',
+  },
 ];
 
 export {
@@ -135,6 +163,7 @@ export {
   chargeYardList,
   stoveNumberFive,
   meshReplacement,
-  ropeReplacement,
+  winchRopeReplacement,
   beltReplacement,
+  ropeReplacement17684,
 };
