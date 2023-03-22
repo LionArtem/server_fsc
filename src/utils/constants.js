@@ -1,6 +1,6 @@
 import Grid from '../image/grid.jpg';
 import Сlamp from '../image/clamp.png';
-import Tap17684 from '../image/17684.jpg';
+import Tap13872 from '../image/13872.jpg';
 
 const navigationList = [
   { title: '1-ое отделение', link: '*' },
@@ -99,7 +99,7 @@ const stoveNumberFive = [
     subTitle: 'Ковшевоз',
   },
   {
-    list: [{ title: 'Кран №17684(новый разливочный)', link: '/17684' }],
+    list: [{ title: 'Кран №13872(старый разливочный)', link: '/13872' }],
     subTitle: 'ГПМ',
   },
 ];
@@ -122,12 +122,12 @@ const winchRopeReplacement = {
   ],
 };
 
-const ropeReplacement17684 = {
+const ropeReplacement13872 = {
   description: [
     { title: 'Канат: диаметр 17мм,длинна ?м', src: '', alt: '' },
     {
       title: 'Схема запасовки',
-      src: Tap17684,
+      src: Tap13872,
       alt: 'схема',
     },
   ],
@@ -152,8 +152,8 @@ const searchList = [
     link: '/belt-replacement',
   },
   {
-    value: 'замена тросса(каната) на большом подъеме (кран №17684)',
-    link: '/17684-rope-replacement',
+    value: 'замена тросса(каната) на большом подъеме (кран №13872)',
+    link: '/13872-rope-replacement',
   },
 ];
 
@@ -165,5 +165,5 @@ export {
   meshReplacement,
   winchRopeReplacement,
   beltReplacement,
-  ropeReplacement17684,
+  ropeReplacement13872,
 };

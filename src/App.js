@@ -17,7 +17,7 @@ import {
   meshReplacement,
   winchRopeReplacement,
   beltReplacement,
-  ropeReplacement17684,
+  ropeReplacement13872,
 } from './utils/constants';
 import Description from './components/Department/Node/Description';
 
@@ -83,18 +83,18 @@ function App() {
             element={<Description listJob={winchRopeReplacement} />}
           />
           <Route
-            path="/17684"
+            path="/13872"
             element={
               <Node
                 job="Замена каната(большой подъём)"
-                link={'/17684-rope-replacement'}
-                titleNode="Кран №17684"
+                link={'/13872-rope-replacement'}
+                titleNode="Кран №13872"
               />
             }
           />
           <Route
-            path="/17684-rope-replacement"
-            element={<Description listJob={ropeReplacement17684} />}
+            path="/13872-rope-replacement"
+            element={<Description listJob={ropeReplacement13872} />}
           />
           <Route path="*" element={<NodFound />} />
         </Routes>
