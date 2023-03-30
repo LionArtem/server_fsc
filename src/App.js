@@ -18,6 +18,7 @@ import {
   winchRopeReplacement,
   beltReplacement,
   ropeReplacement13872,
+  VY4BeltReplacement
 } from './utils/constants';
 import Description from './components/Department/Node/Description';
 
@@ -95,6 +96,20 @@ function App() {
           <Route
             path="/13872-rope-replacement"
             element={<Description listJob={ropeReplacement13872} />}
+          />
+            <Route
+            path="/VY-4"
+            element={
+              <Node
+                job="Замена ремней"
+                link={'/VY-4-Belt-replacement'}
+                titleNode="Вентилятор №325/326"
+              />
+            }
+          />
+          <Route
+            path="/VY-4-Belt-replacement"
+            element={<Description listJob={VY4BeltReplacement} />}
           />
           <Route path="*" element={<NodFound />} />
         </Routes>

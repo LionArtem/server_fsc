@@ -102,6 +102,10 @@ const stoveNumberFive = [
     list: [{ title: 'Кран №13872(старый разливочный)', link: '/13872' }],
     subTitle: 'ГПМ',
   },
+  {
+    list: [{ title: 'Вентилятор №325/326', link: '/VY-4' }],
+    subTitle: 'ВУ-4',
+  },
 ];
 
 const winchRopeReplacement = {
@@ -141,6 +145,20 @@ const ropeReplacement13872 = {
   ],
 };
 
+const VY4BeltReplacement = {
+  description: [{ title: 'Mаркеровка ремней: С(В)-3150', src: '', alt: '' }],
+  tools: [
+    { title: 'Ключи 17,19,30,32' },
+    { title: 'Большая отвертка или монтажка' },
+  ],
+  spareParts: [{ title: '?' }],
+  sIZ: [{ title: 'Распиратор' }],
+  safetyPrecautions: [
+    { title: 'Забрать ключ бирку' },
+    { title: 'Разобрать схему' },
+  ],
+};
+
 const searchList = [
   { value: 'замена сетки на грохоте кокса', link: '/mesh-replacement' },
   {
@@ -155,6 +173,10 @@ const searchList = [
     value: 'замена тросса(каната) на большом подъеме (кран №13872)',
     link: '/13872-rope-replacement',
   },
+  {
+    value: 'замена ремней на ВУ-4 (вентилятор 325/326)',
+    link: '/VY-4-Belt-replacement',
+  },
 ];
 
 export {
@@ -166,4 +188,5 @@ export {
   winchRopeReplacement,
   beltReplacement,
   ropeReplacement13872,
+  VY4BeltReplacement,
 };
