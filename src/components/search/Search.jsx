@@ -39,7 +39,7 @@ export default function Search() {
       )}
       <div className={style.search_conteiner_found}>
         <img src={Found} alt="поиск" />
-        <input
+        <textarea
           value={inputValue}
           onChange={(e) => {
             setInputValue(e.target.value);
@@ -47,8 +47,8 @@ export default function Search() {
           }}
           type="text"
           placeholder="Поиск оборудования"
-          minLength="2"
           maxLength="50"
+          rows="2"
         />
       </div>
 
