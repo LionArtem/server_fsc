@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -18,17 +18,17 @@ import {
   winchRopeReplacement,
   beltReplacement,
   ropeReplacement13872,
-  VY4BeltReplacement
+  VY4BeltReplacement,
 } from './utils/constants';
 import Description from './components/Department/Node/Description';
 
 function App() {
+  const location = useLocation();
   return (
     <div className="page">
       <Header />
-
       <main className="main">
-        <Search />
+        {location.pathname === '/server_fsc' && <Search />}
         <Routes>
           <Route path="/server_fsc" element={<Home />} />
           <Route
@@ -97,7 +97,7 @@ function App() {
             path="/13872-rope-replacement"
             element={<Description listJob={ropeReplacement13872} />}
           />
-            <Route
+          <Route
             path="/VY-4"
             element={
               <Node
