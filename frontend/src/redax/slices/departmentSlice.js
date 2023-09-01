@@ -12,7 +12,19 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // );
 
 const initialState = {
-  date: '',
+  department: {
+    titleDepartment: '1-ое отделение',
+    equipmentGroup: [
+      {
+        listEquipment: [
+          { titleEquipment: 'Грохот кокса' },
+          { titleEquipment: 'Грохот кварцита 3-е отделение' },
+          { titleEquipment: 'Грохот квацита 1-е отделение' },
+        ],
+        titleGroup: 'Узел расссева',
+      },
+    ],
+  },
 };
 
 const departmentSlice = createSlice({
@@ -20,7 +32,7 @@ const departmentSlice = createSlice({
   initialState,
   reducers: {
     killAllStateTopic(state) {
-      state.messageValue = '';
+      state.department = '';
     },
   },
   extraReducers: (builder) => {
@@ -40,5 +52,5 @@ const departmentSlice = createSlice({
 });
 
 export const selectDepartment = (state) => state.department;
-export const { addAuthorTopic } = departmentSlice.actions;
+export const { killAllStateTopic } = departmentSlice.actions;
 export default departmentSlice.reducer;

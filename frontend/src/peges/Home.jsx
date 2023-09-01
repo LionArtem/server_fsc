@@ -9,7 +9,7 @@ function Home() {
       <nav>
         <ul className="navigation__list">
           {navigationList.map((data, i) => (
-            <NavigationListLinks key={i} title={data.title} />
+            <NavigationListLinks key={i} title={data.title}/>
           ))}
         </ul>
       </nav>

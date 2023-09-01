@@ -1,29 +1,29 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  selectDepartment,
+} from '../../redax/slices/departmentSlice';
+
 import DepartmentCard from './DepartmentCard';
 
 import NodeLink from './Node/NodeLink';
 
-function Department(props) {
-  const title = 'что то';
-  const list = [
-    {
-      list: [
-        { title: 'Грохот кокса', link: '/coke-rumble' },
-        { title: 'Грохот кварцита 3-е отделение', link: '*' },
-        { title: 'Грохот квацита 1-е отделение', link: '*' },
-      ],
-      subTitle: 'Узел расссева',
-    },
-  ];
+function Department() {
+  const dispatch = useDispatch();
+  const { department } = useSelector(selectDepartment);
 
   return (
     <>
-      <h1 className="header-department">{title}:</h1>
+      <h1 className="header-department">
+        {department.titleDepartment}
+        :
+      </h1>
       <section className="navigation navigation__cards">
-        {list.map((obj, i) => (
-          <DepartmentCard key={i} subTitle={obj.subTitle}>
-            {obj.list.map((data, i) => (
-              <NodeLink key={i} title={data.title} link={data.link} />
+        {department.equipmentGroup.map((obj, i) => (
+          <DepartmentCard key={i} subTitle={obj.titleGroup}>
+            {obj.listEquipment.map((data, i) => (
+              <NodeLink key={i} title={data.titleEquipment} />
             ))}
           </DepartmentCard>
         ))}
