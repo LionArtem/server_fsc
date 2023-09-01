@@ -31,11 +31,8 @@ function App() {
         {location.pathname === '/server_fsc/' && <Search />}
         <Routes>
           <Route path="/server_fsc/" element={<Home />} />
-          <Route
-            path="/charge_yard"
-            element={<Department title="Шихтовый двор" list={chargeYardList} />}
-          />
-          <Route
+          <Route path="/department" element={<Department />} />
+          {/*<Route
             path="/coke-rumble"
             element={
               <Node
@@ -110,7 +107,7 @@ function App() {
           <Route
             path="/VY-4-Belt-replacement"
             element={<Description listJob={VY4BeltReplacement} />}
-          />
+          /> */}
           <Route path="*" element={<NodFound />} />
         </Routes>
       </main>

@@ -3,7 +3,7 @@ import Сlamp from '../image/clamp.png';
 import Tap13872 from '../image/13872.jpg';
 
 const navigationList = [
-  { title: '1-ое отделение', link: '*' },
+  { title: '1-ое отделение' },
   { title: '2-ое отделение', link: '*' },
   { title: 'Печь №5', link: '/one_department' },
   { title: 'Шихтовый двор', link: '/charge_yard' },
@@ -13,7 +13,6 @@ const navigationList = [
   { title: 'РММ 3-го отделения', link: '*' },
   { title: 'Газоочистка 3-го отделения', link: '*' },
   { title: 'Насосная оборотного цыкла', link: '*' },
-  { title: '1-ое отделение', link: '*' },
 ];
 
 const chargeYardList = [

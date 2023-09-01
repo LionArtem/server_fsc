@@ -4,7 +4,17 @@ import DepartmentCard from './DepartmentCard';
 import NodeLink from './Node/NodeLink';
 
 function Department(props) {
-  const { title, list } = props;
+  const title = 'что то';
+  const list = [
+    {
+      list: [
+        { title: 'Грохот кокса', link: '/coke-rumble' },
+        { title: 'Грохот кварцита 3-е отделение', link: '*' },
+        { title: 'Грохот квацита 1-е отделение', link: '*' },
+      ],
+      subTitle: 'Узел расссева',
+    },
+  ];
 
   return (
     <>
