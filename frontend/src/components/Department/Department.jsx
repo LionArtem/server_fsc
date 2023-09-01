@@ -20,7 +20,7 @@ function Department() {
         :
       </h1>
       <section className="navigation navigation__cards">
-        {department.equipmentGroup.map((obj, i) => (
+        {department[0].equipmentGroup.map((obj, i) => (
           <DepartmentCard key={i} subTitle={obj.titleGroup}>
             {obj.listEquipment.map((data, i) => (
               <NodeLink key={i} title={data.titleEquipment} />

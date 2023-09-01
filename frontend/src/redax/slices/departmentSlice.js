@@ -12,19 +12,21 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // );
 
 const initialState = {
-  department: {
-    titleDepartment: '1-ое отделение',
-    equipmentGroup: [
-      {
-        listEquipment: [
-          { titleEquipment: 'Грохот кокса' },
-          { titleEquipment: 'Грохот кварцита 3-е отделение' },
-          { titleEquipment: 'Грохот квацита 1-е отделение' },
-        ],
-        titleGroup: 'Узел расссева',
-      },
-    ],
-  },
+  department: [
+    {
+      titleDepartment: '1-ое отделение',
+      equipmentGroup: [
+        {
+          listEquipment: [
+            { titleEquipment: 'Грохот кокса' },
+            { titleEquipment: 'Грохот кварцита 3-е отделение' },
+            { titleEquipment: 'Грохот квацита 1-е отделение' },
+          ],
+          titleGroup: 'Узел расссева',
+        },
+      ],
+    },
+  ],
 };
 
 const departmentSlice = createSlice({
