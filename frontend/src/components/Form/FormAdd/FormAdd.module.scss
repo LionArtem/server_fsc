@@ -1,8 +1,24 @@
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 50%;
-  margin: 70px auto 0px;
+  margin: 90px auto 0px;
+  .clouse {
+    background-image: url(../../../image/103.svg);
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: -30px;
+    left: -45px;
+    cursor: pointer;
+    transition: transform 1s linear;
+    &:hover {
+      transform: rotateZ(-360deg);
+    }
+  }
   input {
     all: unset;
     margin: 0px 0px 10px;
