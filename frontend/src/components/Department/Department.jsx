@@ -1,9 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  selectDepartment,
-} from '../../redax/slices/departmentSlice';
+import { selectDepartment } from '../../redax/slices/departmentSlice';
 
 import DepartmentCard from './DepartmentCard';
 
@@ -15,10 +13,7 @@ function Department() {
 
   return (
     <>
-      <h1 className="header-department">
-        {department.titleDepartment}
-        :
-      </h1>
+      <h1 className="header-department">{department[0].titleDepartment}:</h1>
       <section className="navigation navigation__cards">
         {department[0].equipmentGroup.map((obj, i) => (
           <DepartmentCard key={i} subTitle={obj.titleGroup}>

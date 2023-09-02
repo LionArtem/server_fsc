@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Home from './peges/Home';
+import Home from './peges/Home/Home';
 
 import Department from './components/Department/Department.jsx';
 import NodFound from './peges/nodFound';
@@ -28,7 +28,7 @@ function App() {
     <div className="page">
       <Header />
       <main className="main">
-        {location.pathname === '/server_fsc/' && <Search />}
+        {/* {location.pathname === '/server_fsc/' && <Search />} */}
         <Routes>
           <Route path="/server_fsc/" element={<Home />} />
           <Route path="/department" element={<Department />} />
