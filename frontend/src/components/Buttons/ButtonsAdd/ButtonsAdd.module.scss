@@ -7,6 +7,9 @@
   margin: auto 0px auto 10px;
   cursor: pointer;
   transition: background-color 0.7s linear;
+  &:hover{
+    background-color: rgb(193, 190, 190);
+  }
   img {
     margin: auto;
     width: 30px;
@@ -14,8 +17,4 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-}
-
-.button:hover {
-  background-color: rgb(193, 190, 190);
 }
