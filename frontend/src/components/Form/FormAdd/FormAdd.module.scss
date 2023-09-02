@@ -11,7 +11,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: -30px;
+    top: -10px;
     left: -45px;
     cursor: pointer;
     transition: transform 1s linear;
@@ -19,6 +19,15 @@
       transform: rotateZ(-360deg);
     }
   }
+  span {
+    height: 33px;
+    transition: color 1s linear;
+    color: rgb(242, 214, 32);
+    font-size: 14px;
+    text-align: center;
+    padding: 0px 5px;
+  }
+  
   input {
     all: unset;
     margin: 0px 0px 10px;
@@ -35,10 +44,11 @@
     border: 1px solid rgb(118, 117, 117);
     padding: 5px;
     border-radius: 3px;
+  }
+  .button_on {
     cursor: pointer;
-    transition: color 0.5s linear;
-    &:hover {
-      color: white;
-    }
+    transition: color 0.4s linear, border 0.9s linear;
+    border: 1px solid rgb(205, 205, 205);
+    color: rgb(205, 205, 205);
   }
 }

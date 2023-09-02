@@ -15,16 +15,16 @@ const formValidetionSlice = createSlice({
       state.errors = {};
       state.valid = false;
     },
-    defaultValues(state, action) {
-      state.value = {
-        name: action.payload.name,
-        email: action.payload.email,
-        age: action.payload.age,
-        avatar: action.payload.avatar,
-        sity: action.payload.sity,
-        gender: action.payload.gender,
-      };
-    },
+    // defaultValues(state, action) {
+    //   state.value = {
+    //     name: action.payload.name,
+    //     email: action.payload.email,
+    //     age: action.payload.age,
+    //     avatar: action.payload.avatar,
+    //     sity: action.payload.sity,
+    //     gender: action.payload.gender,
+    //   };
+    // },
     setValue(state, action) {
       const { value, name, errors, valid } = action.payload;
       state.value = { ...state.value, [name]: value };
@@ -46,7 +46,6 @@ export const {
   setValue,
   resetValues,
   setValid,
-  defaultValues,
   killAllStateFormValidetion,
 } = formValidetionSlice.actions;
 export default formValidetionSlice.reducer;
