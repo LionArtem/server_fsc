@@ -28,7 +28,7 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div className={Style.home}>
       <Header />
       <main className="main">
         <div className={Style.conteiner_interaction}>
@@ -46,7 +46,7 @@ function Home() {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

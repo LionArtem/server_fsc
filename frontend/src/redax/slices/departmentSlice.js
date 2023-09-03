@@ -64,7 +64,6 @@ const departmentSlice = createSlice({
     builder.addCase(fetchGetAllDepartment.fulfilled, (state, { payload }) => {
       // state.showPreloader = false;
       state.ListDepartment = payload;
-      console.log(payload);
     });
     builder.addCase(fetchGetAllDepartment.rejected, (state, action) => {
       console.log('ошибка получения списка всех отделений');

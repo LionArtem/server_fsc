@@ -1,3 +1,10 @@
-.conteiner_interaction{
-    display: flex;
+.home {
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.conteiner_interaction {
+  display: flex;
 }

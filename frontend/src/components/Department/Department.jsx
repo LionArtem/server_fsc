@@ -9,9 +9,12 @@ import {
 import DepartmentCard from './DepartmentCard';
 
 import NodeLink from './Node/NodeLink';
+import ButtonsAdd from '../Buttons/ButtonsAdd/ButtonsAdd';
+import { useNavigate } from 'react-router-dom';
 
 function Department() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { department } = useSelector(selectDepartment);
 
   React.useEffect(() => {
@@ -24,13 +27,18 @@ function Department() {
     );
   }, []);
 
+  const openForm = () => {
+    navigate('/Form_equipment_roup');
+  };
+
   return (
     <>
       <h1 className="header-department">{department.titleDepartment}:</h1>
+      <ButtonsAdd openForm={openForm} />
       <section className="navigation navigation__cards">
         {department.equipmentGroup &&
           department.equipmentGroup.length > 0 &&
-          department[0].equipmentGroup.map((obj, i) => (
+          department.equipmentGroup.map((obj, i) => (
             <DepartmentCard key={i} subTitle={obj.titleGroup}>
               {obj.listEquipment.map((data, i) => (
                 <NodeLink key={i} title={data.titleEquipment} />
