@@ -53,8 +53,43 @@ const getDepartmentId = (req, res, next) => {
     });
 };
 
+const addInDepartmentGroup = (req, res, next) => {
+  const { idDepartment } = req.params;
+  const {
+    titleGroup,
+  } = req.body;
+
+  Department.findByIdAndUpdate(
+    idDepartment,
+    {
+      $push: {
+        equipmentGroup: {
+          titleGroup,
+        },
+      },
+    },
+    { new: true },
+  )
+    .then((resTopic) => {
+      if (resTopic) {
+        res.send(resTopic);
+        return;
+      }
+      throw new NotFoundError('отделение с таким id не найдена');
+    })
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        const error = new IncorrectErr('не корректные данные');
+        next(error);
+      } else {
+        next(err);
+      }
+    });
+};
+
 module.exports = {
   createDepartment,
   getAllDepartment,
   getDepartmentId,
+  addInDepartmentGroup,
 };

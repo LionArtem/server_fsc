@@ -1,14 +1,29 @@
 import React from 'react';
 
 import FormAdd from '../FormAdd/FormAdd';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  fetchAddEquipmentDepartment,
+  selectDepartment,
+} from '../../../redax/slices/departmentSlice';
 
 export default function FormEquipmentGroup() {
   const dispatch = useDispatch();
 
+  const { department } = useSelector(selectDepartment);
+
   const hendleSubmit = (evt) => {
     evt.preventDefault();
-    // dispatch(fetchAddNewDepartment(evt.target.name.value));
+    const idDepartment = localStorage.getItem('idDepartment')
+      ? localStorage.getItem('idDepartment')
+      : department._id;
+    dispatch(
+      fetchAddEquipmentDepartment({
+        idDepartment,
+        titleGroup: evt.target.name.value,
+      })
+    );
   };
 
   return (

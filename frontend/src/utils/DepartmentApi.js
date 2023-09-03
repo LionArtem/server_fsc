@@ -26,20 +26,16 @@ class DepartmentApi {
     }).then(this._checkResponse);
   }
 
-  // addMessageInTopic(params) {
-  //   const { id, message, userId, token } = params;
-  //   return fetch(`${this.baseUrl}/${id}/message`, {
-  //     method: 'PUT',
-  //     headers: {
-  //       authorization: `Bearer ${localStorage.getItem('token') || token}`,
-  //       'content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       message,
-  //       userId,
-  //     }),
-  //   }).then(this._checkResponse);
-  // }
+  addEquipmentDepartment(params) {
+    const { idDepartment, titleGroup } = params;
+    return fetch(`${this.baseUrl}/${idDepartment}`, {
+      method: 'PUT',
+      headers: this.headers,
+      body: JSON.stringify({
+        titleGroup,
+      }),
+    }).then(this._checkResponse);
+  }
 
   // deleteMessage(params) {
   //   const { messageId, topicId } = params;
