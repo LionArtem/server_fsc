@@ -4,11 +4,9 @@ const IncorrectErr = require('../errors/incorrect-err');
 // const NotFoundError = require('../errors/not-found-err');
 
 const createDepartment = (req, res, next) => {
-  // const id = req.user._id;
   const { titleDepartment } = req.body;
   Department.create({
     titleDepartment,
-    // owner: id,
   })
     .then((newDepartment) => {
       res.status(201).send(newDepartment);
@@ -22,6 +20,17 @@ const createDepartment = (req, res, next) => {
     });
 };
 
+const getDepartment = (req, res, next) => {
+  Department.find()
+    .then((topic) => {
+      res.send(topic);
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
 module.exports = {
   createDepartment,
+  getDepartment,
 };

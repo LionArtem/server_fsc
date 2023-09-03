@@ -3,6 +3,7 @@ const { celebrate, Joi } = require('celebrate');
 
 const {
   createDepartment,
+  getDepartment,
 } = require('../controllers/department');
 
 departmentRouter.post(
@@ -16,5 +17,7 @@ departmentRouter.post(
   }),
   createDepartment,
 );
+
+departmentRouter.get('/', getDepartment);
 
 module.exports = departmentRouter;

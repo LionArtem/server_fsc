@@ -12,12 +12,12 @@ class DepartmentApi {
     }).then(this._checkResponse);
   }
 
-  // getAllTopics() {
-  //   return fetch(this.baseUrl, {
-  //     method: 'get',
-  //     headers: this.headers,
-  //   }).then(this._checkResponse);
-  // }
+  getAllDepartment() {
+    return fetch(this.baseUrl, {
+      method: 'get',
+      headers: this.headers,
+    }).then(this._checkResponse);
+  }
 
   // addMessageInTopic(params) {
   //   const { id, message, userId, token } = params;

@@ -11,6 +11,8 @@ function Department() {
   const dispatch = useDispatch();
   const { department } = useSelector(selectDepartment);
 
+  console.log(department);
+
   return (
     <>
       <h1 className="header-department">{department[0].titleDepartment}:</h1>
