@@ -18,6 +18,14 @@ export const fetchGetAllDepartment = createAsyncThunk(
   }
 );
 
+export const fetchGetDepartmentId = createAsyncThunk(
+  'page/fetchGetDepartmentId',
+  async (params, thunkAPI) => {
+    const data = await departmentApi.getDepartmentId(params);
+    return data;
+  }
+);
+
 const initialState = {
   ListDepartment: [],
   department: {},
@@ -60,6 +68,21 @@ const departmentSlice = createSlice({
     });
     builder.addCase(fetchGetAllDepartment.rejected, (state, action) => {
       console.log('ошибка получения списка всех отделений');
+      // state.showPreloader = false;
+      // state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
+    });
+
+    builder.addCase(fetchGetDepartmentId.pending, (state) => {
+      console.log('получение отделения по id');
+      // state.showPreloader = true;
+    });
+    builder.addCase(fetchGetDepartmentId.fulfilled, (state, { payload }) => {
+      // state.showPreloader = false;
+      state.department = payload;
+      // console.log(payload);
+    });
+    builder.addCase(fetchGetDepartmentId.rejected, (state, action) => {
+      console.log('ошибка получения отделения по id');
       // state.showPreloader = false;
       // state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
     });

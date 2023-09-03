@@ -4,6 +4,7 @@ const { celebrate, Joi } = require('celebrate');
 const {
   createDepartment,
   getAllDepartment,
+  getDepartmentId,
 } = require('../controllers/department');
 
 departmentRouter.post(
@@ -19,5 +20,11 @@ departmentRouter.post(
 );
 
 departmentRouter.get('/', getAllDepartment);
+
+departmentRouter.get('/:id', celebrate({
+  params: Joi.object().keys({
+    id: Joi.string().hex().length(24).required(),
+  }),
+}), getDepartmentId);
 
 module.exports = departmentRouter;

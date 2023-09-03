@@ -1,7 +1,7 @@
 const Department = require('../models/department');
 
 const IncorrectErr = require('../errors/incorrect-err');
-// const NotFoundError = require('../errors/not-found-err');
+const NotFoundError = require('../errors/not-found-err');
 
 const createDepartment = (req, res, next) => {
   const { titleDepartment } = req.body;
@@ -33,7 +33,28 @@ const getAllDepartment = (req, res, next) => {
     });
 };
 
+const getDepartmentId = (req, res, next) => {
+  const { id } = req.params;
+  Department.findById(id)
+    .then((user) => {
+      if (user) {
+        res.send(user);
+        return;
+      }
+      throw new NotFoundError('отделение не найден');
+    })
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        const error = new IncorrectErr('Некорректный id');
+        next(error);
+      } else {
+        next(err);
+      }
+    });
+};
+
 module.exports = {
   createDepartment,
   getAllDepartment,
+  getDepartmentId,
 };

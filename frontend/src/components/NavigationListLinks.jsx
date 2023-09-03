@@ -9,7 +9,10 @@ function NavigationListLinks(props) {
 
   return (
     <li
-      onClick={() => dispatch(addDepartment(data))}
+      onClick={() => {
+        dispatch(addDepartment(data));
+        localStorage.setItem('idDepartment', data._id);
+      }}
       className="navigation__title"
     >
       <Link to="/department" className="navigation__list-links">

@@ -19,6 +19,13 @@ class DepartmentApi {
     }).then(this._checkResponse);
   }
 
+  getDepartmentId(id) {
+    return fetch(`${this.baseUrl}/${id}`, {
+      method: 'GET',
+      headers: this.headers,
+    }).then(this._checkResponse);
+  }
+
   // addMessageInTopic(params) {
   //   const { id, message, userId, token } = params;
   //   return fetch(`${this.baseUrl}/${id}/message`, {
