@@ -15,15 +15,16 @@ function Department() {
 
   return (
     <>
-      <h1 className="header-department">{department[0].titleDepartment}:</h1>
+      <h1 className="header-department">{department.titleDepartment}:</h1>
       <section className="navigation navigation__cards">
-        {department[0].equipmentGroup.map((obj, i) => (
-          <DepartmentCard key={i} subTitle={obj.titleGroup}>
-            {obj.listEquipment.map((data, i) => (
-              <NodeLink key={i} title={data.titleEquipment} />
-            ))}
-          </DepartmentCard>
-        ))}
+        {department.equipmentGroup &&
+          department[0].equipmentGroup.map((obj, i) => (
+            <DepartmentCard key={i} subTitle={obj.titleGroup}>
+              {obj.listEquipment.map((data, i) => (
+                <NodeLink key={i} title={data.titleEquipment} />
+              ))}
+            </DepartmentCard>
+          ))}
       </section>
     </>
   );

@@ -19,7 +19,8 @@ export const fetchGetAllDepartment = createAsyncThunk(
 );
 
 const initialState = {
-  department: [],
+  ListDepartment: [],
+  department: {},
 };
 
 const departmentSlice = createSlice({
@@ -28,6 +29,9 @@ const departmentSlice = createSlice({
   reducers: {
     killAllStateTopic(state) {
       state.department = '';
+    },
+    addDepartment(state, action) {
+      state.department = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -51,7 +55,7 @@ const departmentSlice = createSlice({
     });
     builder.addCase(fetchGetAllDepartment.fulfilled, (state, { payload }) => {
       // state.showPreloader = false;
-      state.department = payload;
+      state.ListDepartment = payload;
       console.log(payload);
     });
     builder.addCase(fetchGetAllDepartment.rejected, (state, action) => {
@@ -63,5 +67,5 @@ const departmentSlice = createSlice({
 });
 
 export const selectDepartment = (state) => state.department;
-export const { killAllStateTopic } = departmentSlice.actions;
+export const { killAllStateTopic, addDepartment } = departmentSlice.actions;
 export default departmentSlice.reducer;

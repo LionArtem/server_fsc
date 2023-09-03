@@ -17,7 +17,7 @@ function Home() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { department } = useSelector(selectDepartment);
+  const { ListDepartment } = useSelector(selectDepartment);
 
   const openDepartmentForm = () => {
     navigate('/form_departmen');
@@ -38,7 +38,7 @@ function Home() {
         <section className="navigation">
           <nav>
             <ul className="navigation__list">
-              {department.map((data, i) => (
+              {ListDepartment.map((data, i) => (
                 <NavigationListLinks key={i} data={data} />
               ))}
             </ul>

@@ -20,10 +20,13 @@ const createDepartment = (req, res, next) => {
     });
 };
 
-const getDepartment = (req, res, next) => {
+const getAllDepartment = (req, res, next) => {
   Department.find()
-    .then((topic) => {
-      res.send(topic);
+    .then((department) => {
+      const newDepartment = department.map((data) => ({
+        _id: data._id, titleDepartment: data.titleDepartment,
+      }));
+      res.send(newDepartment);
     })
     .catch((err) => {
       next(err);
@@ -32,5 +35,5 @@ const getDepartment = (req, res, next) => {
 
 module.exports = {
   createDepartment,
-  getDepartment,
+  getAllDepartment,
 };
