@@ -1,32 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// import { topicApi } from '../../utils/TopicApi';
-// import { notAuthRequest } from '../../utils/NotAuthRequest';
+import { departmentApi } from '../../utils/DepartmentApi';
 
-// export const fetchAddMessageInTopic = createAsyncThunk(
-//   'page/fetchAddMessageInTopic',
-//   async (params, thunkAPI) => {
-//     const data = await topicApi.addMessageInTopic(params);
-//     return data;
-//   }
-// );
+export const fetchAddNewDepartment = createAsyncThunk(
+  'page/fetchAddMessageInTopic',
+  async (params, thunkAPI) => {
+    const data = await departmentApi.addNewDepartment(params);
+    return data;
+  }
+);
 
 const initialState = {
-  department: [
-    {
-      titleDepartment: '1-ое отделение',
-      equipmentGroup: [
-        {
-          listEquipment: [
-            { titleEquipment: 'Грохот кокса' },
-            { titleEquipment: 'Грохот кварцита 3-е отделение' },
-            { titleEquipment: 'Грохот квацита 1-е отделение' },
-          ],
-          titleGroup: 'Узел расссева',
-        },
-      ],
-    },
-  ],
+  department: [],
 };
 
 const departmentSlice = createSlice({
@@ -38,18 +23,19 @@ const departmentSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // builder.addCase(fetchAddMessageInTopic.pending, (state) => {
-    //   console.log('отправка message');
-    //   state.showPreloader = true;
-    // });
-    // builder.addCase(fetchAddMessageInTopic.fulfilled, (state, { payload }) => {
-    //   state.showPreloader = false;
-    // });
-    // builder.addCase(fetchAddMessageInTopic.rejected, (state, action) => {
-    //   console.log('ошибка отправки message');
-    //   state.showPreloader = false;
-    //   state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
-    // });
+    builder.addCase(fetchAddNewDepartment.pending, (state) => {
+      console.log('добавление отделения');
+      // state.showPreloader = true;
+    });
+    builder.addCase(fetchAddNewDepartment.fulfilled, (state, { payload }) => {
+      // state.showPreloader = false;
+      console.log(payload);
+    });
+    builder.addCase(fetchAddNewDepartment.rejected, (state, action) => {
+      console.log('ошибка добавления отделения');
+      // state.showPreloader = false;
+      // state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
+    });
   },
 });
 

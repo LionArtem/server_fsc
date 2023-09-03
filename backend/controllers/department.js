@@ -1,17 +1,17 @@
-const Departmen = require('../models/departmen');
+const Department = require('../models/department');
 
 const IncorrectErr = require('../errors/incorrect-err');
 // const NotFoundError = require('../errors/not-found-err');
 
-const createDepartmen = (req, res, next) => {
+const createDepartment = (req, res, next) => {
   // const id = req.user._id;
   const { titleDepartment } = req.body;
-  Departmen.create({
+  Department.create({
     titleDepartment,
     // owner: id,
   })
-    .then((newDepartmen) => {
-      res.status(201).send(newDepartmen);
+    .then((newDepartment) => {
+      res.status(201).send(newDepartment);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -23,5 +23,5 @@ const createDepartmen = (req, res, next) => {
 };
 
 module.exports = {
-  createDepartmen,
+  createDepartment,
 };

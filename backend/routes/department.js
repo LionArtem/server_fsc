@@ -1,11 +1,11 @@
-const topicRouter = require('express').Router();
+const departmentRouter = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 
 const {
-  createDepartmen,
-} = require('../controllers/departmen');
+  createDepartment,
+} = require('../controllers/department');
 
-topicRouter.post(
+departmentRouter.post(
   '/',
   celebrate({
     body: Joi.object()
@@ -14,7 +14,7 @@ topicRouter.post(
       }),
     // .unknown(true),
   }),
-  createDepartmen,
+  createDepartment,
 );
 
-module.exports = topicRouter;
+module.exports = departmentRouter;

@@ -1,3 +1,3 @@
-const listDomen = ['locolhost:3000'];
+const listDomen = ['http://localhost:3001'];
 
 module.exports = { listDomen };
