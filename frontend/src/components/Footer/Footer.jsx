@@ -1,3 +1,6 @@
+import login from '../../image/275.svg';
+import Style from './Footer.module.scss';
+
 function Footer() {
   return (
     <footer className="footer">
@@ -12,6 +15,7 @@ function Footer() {
           (Вконтакте)
         </a>
       </nav>
+      <img className={Style.login_img} src={login} alt="вход" />
     </footer>
   );
 }

@@ -11,7 +11,7 @@ import Search from '../../components/search/Search';
 import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Footer from '../../components/Footer/Footer';
 
 function Home() {
   const navigate = useNavigate();
