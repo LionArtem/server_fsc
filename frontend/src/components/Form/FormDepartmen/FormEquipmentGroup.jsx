@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FormAdd from '../FormAdd/FormAdd';
+import FormAdd from '../FormAdd';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {

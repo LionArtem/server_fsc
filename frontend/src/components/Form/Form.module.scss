@@ -5,13 +5,13 @@
   width: 50%;
   margin: 90px auto 0px;
   .clouse {
-    background-image: url(../../../image/103.svg);
+    background-image: url(../../image/103.svg);
     width: 30px;
     height: 30px;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: -10px;
+    top: -30px;
     left: -45px;
     cursor: pointer;
     transition: transform 1s linear;
@@ -27,7 +27,10 @@
     text-align: center;
     padding: 0px 5px;
   }
-  
+  label {
+    color: rgb(158, 156, 156);
+    margin-bottom: 7px;
+  }
   input {
     all: unset;
     margin: 0px 0px 10px;
@@ -36,19 +39,6 @@
     font-family: 'Unbounded', Arial, Helvetica, sans-serif;
     font-size: 24px;
     height: 36px;
-  }
-  button {
-    all: unset;
-    color: rgb(118, 117, 117);
-    margin: auto;
-    border: 1px solid rgb(118, 117, 117);
-    padding: 5px;
-    border-radius: 3px;
-  }
-  .button_on {
-    cursor: pointer;
-    transition: color 0.4s linear, border 0.9s linear;
-    border: 1px solid rgb(205, 205, 205);
-    color: rgb(205, 205, 205);
+    padding-left: 3px;
   }
 }

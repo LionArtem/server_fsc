@@ -1,5 +1,5 @@
 import React from 'react';
-import FormAdd from '../FormAdd/FormAdd';
+import FormAdd from '../FormAdd';
 import { fetchAddNewDepartment } from '../../../redax/slices/departmentSlice';
 import { useDispatch } from 'react-redux';
 

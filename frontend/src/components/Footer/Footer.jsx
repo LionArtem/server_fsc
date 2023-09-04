@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import login from '../../image/275.svg';
 import Style from './Footer.module.scss';
 
 function Footer() {
+  const navigate = useNavigate();
   return (
     <footer className="footer">
       <p className="footer__copyright">Артём Гриневич</p>
@@ -15,7 +17,12 @@ function Footer() {
           (Вконтакте)
         </a>
       </nav>
-      <img className={Style.login_img} src={login} alt="вход" />
+      <img
+        onClick={() => navigate('/login')}
+        className={Style.login_img}
+        src={login}
+        alt="вход"
+      />
     </footer>
   );
 }
