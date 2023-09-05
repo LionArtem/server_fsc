@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const router = require('./routes/index');
 // const { requestLogger, errorLogger } = require('./middlewares/logger');
-// const auth = require('./middlewares/auth');
-// const sigRouter = require('./routes/sig');
+const auth = require('./middlewares/auth');
+const sigRouter = require('./routes/auth');
 // const notAuth = require('./routes/notAuth');
 
 const NotFoundError = require('./errors/not-found-err');
@@ -40,11 +40,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use('/', sigRouter);
+app.use('/', sigRouter);
 
 // app.use('/', notAuth);
 
-// app.use(auth);
+app.use(auth);
 
 app.use('/', router);
 
