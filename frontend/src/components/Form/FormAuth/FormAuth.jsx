@@ -1,15 +1,14 @@
-import React from 'react';
-import Style from './Form.module.scss';
+import Style from '../Form.module.scss';
 
-import ButtonSubmit from '../Buttons/ButtonSubmit/ButtonSubmit';
-import ButtonExit from './ButtonExit';
+import ButtonSubmit from '../../Buttons/ButtonSubmit/ButtonSubmit';
+import ButtonExit from '../ButtonExit';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setValue,
   selectformValidetion,
-} from '../../redax/slices/formValidetionSlice';
+} from '../../../redax/slices/formValidetionSlice';
 
-export default function FormAuth() {
+export default function FormAuth({ hendleSubmit, textSubmit, children }) {
   const dispatch = useDispatch();
   const { value, errors, valid } = useSelector(selectformValidetion);
 
@@ -22,11 +21,6 @@ export default function FormAuth() {
         valid: evt.target.closest('form').checkValidity(),
       })
     );
-  };
-
-  const hendleSubmit = (evt) => {
-    evt.preventDefault();
-    //dispatch(fetchAddNewDepartment(evt.target.name.value));
   };
 
   return (
@@ -52,7 +46,8 @@ export default function FormAuth() {
         minLength={8}
         required
       ></input>
-      <ButtonSubmit valid={valid} text={'Войти'} />
+      <ButtonSubmit valid={valid} text={textSubmit} />
+      {children}
     </form>
   );
 }

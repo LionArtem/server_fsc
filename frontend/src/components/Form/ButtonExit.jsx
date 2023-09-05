@@ -5,19 +5,18 @@ import { killAllStateFormValidetion } from '../../redax/slices/formValidetionSli
 import { useDispatch } from 'react-redux';
 
 export default function ButtonExit() {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    const exitButton = () => {
-        dispatch(killAllStateFormValidetion());
-        navigate(-1);
-      };
+  React.useEffect(() => {
+    return () => dispatch(killAllStateFormValidetion());
+  }, []);
 
   return (
     <div
       className={Style.clouse}
       onClick={() => {
-        exitButton();
+        navigate(-1);
       }}
     ></div>
   );

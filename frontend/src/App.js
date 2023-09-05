@@ -7,7 +7,8 @@ import Department from './components/Department/Department.jsx';
 import NodFound from './peges/nodFound';
 import FormDepartmen from './components/Form/FormDepartmen/FormDepartmen';
 import FormEquipmentGroup from './components/Form/FormDepartmen/FormEquipmentGroup';
-import FormAuth from './components/Form/FormAuth';
+import FormLogin from './components/Form/FormAuth/FormLogin';
+import FormReg from './components/Form/FormAuth/FormReg';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/department" element={<Department />} />
-        <Route path="/login" element={<FormAuth />} />
+        <Route path="/login" element={<FormLogin />} />
+        <Route path="/reg" element={<FormReg />} />
         <Route path="/form_departmen" element={<FormDepartmen />} />
         <Route path="/Form_equipment_roup" element={<FormEquipmentGroup />} />
         <Route path="*" element={<NodFound />} />
