@@ -17,16 +17,16 @@ class Auth {
     }).then(this._checkResponse);
   }
 
-  // loginUser(email, password) {
-  //   return fetch(`${this.baseUrl}/signin`, {
-  //     method: 'POST',
-  //     headers: this.headers,
-  //     body: JSON.stringify({
-  //       email,
-  //       password,
-  //     }),
-  //   }).then(this._checkResponse);
-  // }
+  loginUser(email, password) {
+    return fetch(`${this.baseUrl}/signin`, {
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }).then(this._checkResponse);
+  }
 
   _checkResponse = (res) => {
     if (res.ok) {

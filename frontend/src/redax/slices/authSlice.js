@@ -11,13 +11,14 @@ export const fetchAddUser = createAsyncThunk(
   }
 );
 
-// export const fetchLoginUser = createAsyncThunk(
-//   'page/fetchLoginUser',
-//   async (params, thunkAPI) => {
-//     const data = await auth.loginUser(params.email, params.password);
-//     return data;
-//   }
-// );
+export const fetchLoginUser = createAsyncThunk(
+  'page/fetchLoginUser',
+  async (params, thunkAPI) => {
+    const { email, password } = params;
+    const data = await auth.loginUser(email, password);
+    return data;
+  }
+);
 
 const initialState = {
   fopmReg: false,
@@ -56,7 +57,7 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAddUser.pending, (state) => {
-       // state.showPreloader = true;
+      // state.showPreloader = true;
       console.log('запрос на регистрацию');
     });
     builder.addCase(fetchAddUser.fulfilled, (state, { payload }) => {
@@ -68,19 +69,20 @@ const authSlice = createSlice({
       // state.showPreloader = false;
     });
 
-    // builder.addCase(fetchLoginUser.pending, (state) => {
-    //   state.showPreloader = true;
-    //   console.log('запрос на авторизацию');
-    // });
-    // builder.addCase(fetchLoginUser.fulfilled, (state, { payload }) => {
-    //   localStorage.setItem('token', payload.token);
-    //   state.token = payload.token;
-    // });
-    // builder.addCase(fetchLoginUser.rejected, (state, action) => {
-    //   state.textArrAnswerServer = action.error.message;
-    //   state.showPreloader = false;
-    //   console.log('ошибка авторизации');
-    // });
+    builder.addCase(fetchLoginUser.pending, (state) => {
+      //state.showPreloader = true;
+      console.log('запрос на авторизацию');
+    });
+    builder.addCase(fetchLoginUser.fulfilled, (state, { payload }) => {
+      console.log(payload.token);
+      // localStorage.setItem('token', payload.token);
+      // state.token = payload.token;
+    });
+    builder.addCase(fetchLoginUser.rejected, (state, action) => {
+      // state.textArrAnswerServer = action.error.message;
+      // state.showPreloader = false;
+      console.log('ошибка авторизации');
+    });
   },
 });
 
