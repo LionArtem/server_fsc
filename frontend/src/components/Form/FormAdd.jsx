@@ -14,21 +14,12 @@ export default function FormAdd({ placeholder, hendleSubmit }) {
 
   const { value, errors, valid } = useSelector(selectformValidetion);
 
-  function checkedStringGap(string) {
-    const regex = /^((?!\s{2}).)*$/;
-    const result = regex.test(string);
-    return result;
-  }
   const changeValue = (evt) => {
-    let errMessage = evt.target.validationMessage;
-    if (!checkedStringGap(evt.target.value)) {
-      errMessage = 'одного пробела достаточно!';
-    }
     dispatch(
       setValue({
         value: evt.target.value,
         name: evt.target.name,
-        errors: errMessage,
+        errors: evt.target.validationMessage,
         valid: evt.target.closest('form').checkValidity(),
       })
     );

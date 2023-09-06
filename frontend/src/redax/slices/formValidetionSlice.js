@@ -15,20 +15,19 @@ const formValidetionSlice = createSlice({
       state.errors = {};
       state.valid = false;
     },
-    // defaultValues(state, action) {
-    //   state.value = {
-    //     name: action.payload.name,
-    //     email: action.payload.email,
-    //     age: action.payload.age,
-    //     avatar: action.payload.avatar,
-    //     sity: action.payload.sity,
-    //     gender: action.payload.gender,
-    //   };
-    // },
     setValue(state, action) {
       const { value, name, errors, valid } = action.payload;
+      function checkedStringGap(string) {
+        const regex = /^((?!\s{2}).)*$/;
+        const result = regex.test(string);
+        return result;
+      }
+      let errMessage = errors;
+      if (!checkedStringGap(value)) {
+        errMessage = 'одного пробела достаточно!';
+      }
       state.value = { ...state.value, [name]: value };
-      state.errors = { ...state.errors, [name]: errors };
+      state.errors = { ...state.errors, [name]: errMessage };
       state.valid = valid;
     },
     resetValues(state) {
@@ -42,10 +41,6 @@ const formValidetionSlice = createSlice({
 
 export const selectformValidetion = (state) => state.formValidetion;
 
-export const {
-  setValue,
-  resetValues,
-  setValid,
-  killAllStateFormValidetion,
-} = formValidetionSlice.actions;
+export const { setValue, resetValues, setValid, killAllStateFormValidetion } =
+  formValidetionSlice.actions;
 export default formValidetionSlice.reducer;

@@ -16,7 +16,7 @@ export default function ButtonExit() {
     <div
       className={Style.clouse}
       onClick={() => {
-        navigate(-1);
+        navigate('/');
       }}
     ></div>
   );

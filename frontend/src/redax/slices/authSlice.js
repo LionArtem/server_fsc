@@ -1,14 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// import { auth } from '../../utils/Auth';
+import { auth } from '../../utils/Auth';
 
-// export const fetchAddUser = createAsyncThunk(
-//   'page/fetchAddUser',
-//   async (params, thunkAPI) => {
-//     const data = await auth.addUser(params.email, params.password);
-//     return data;
-//   }
-// );
+export const fetchAddUser = createAsyncThunk(
+  'page/fetchAddUser',
+  async (params, thunkAPI) => {
+    const { email, password, name, positionWork } = params;
+    const data = await auth.addUser(email, password, name, positionWork);
+    return data;
+  }
+);
 
 // export const fetchLoginUser = createAsyncThunk(
 //   'page/fetchLoginUser',
@@ -54,18 +55,19 @@ const authSlice = createSlice({
     // },
   },
   extraReducers: (builder) => {
-    // builder.addCase(fetchAddUser.pending, (state) => {
-    //   state.showPreloader = true;
-    //   console.log('запрос на регистрацию');
-    // });
-    // builder.addCase(fetchAddUser.fulfilled, (state, { payload }) => {
-    //   //console.log(payload);
-    // });
-    // builder.addCase(fetchAddUser.rejected, (state, action) => {
-    //   console.log('ошибка регистрации');
-    //   state.textArrAnswerServer = action.error.message;
-    //   state.showPreloader = false;
-    // });
+    builder.addCase(fetchAddUser.pending, (state) => {
+       // state.showPreloader = true;
+      console.log('запрос на регистрацию');
+    });
+    builder.addCase(fetchAddUser.fulfilled, (state, { payload }) => {
+      console.log(payload);
+    });
+    builder.addCase(fetchAddUser.rejected, (state, action) => {
+      console.log('ошибка регистрации');
+      // state.textArrAnswerServer = action.error.message;
+      // state.showPreloader = false;
+    });
+
     // builder.addCase(fetchLoginUser.pending, (state) => {
     //   state.showPreloader = true;
     //   console.log('запрос на авторизацию');

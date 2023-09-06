@@ -38,7 +38,7 @@ export default function FormAuth({ hendleSubmit, textSubmit, children }) {
         name="email"
         required
       ></input>
-      <label>password</label>
+      <label>пароль</label>
       <span>{errors.password}</span>
       <input
         value={value.password ?? ''}
@@ -50,24 +50,26 @@ export default function FormAuth({ hendleSubmit, textSubmit, children }) {
       ></input>
       {fopmReg && (
         <>
-          <label>password</label>
-          <span>{errors.password}</span>
+          <label>имя</label>
+          <span>{errors.name}</span>
           <input
-            value={value.password ?? ''}
+            pattern="^((?!\s{2}).)*$"
+            value={value.name ?? ''}
             onChange={(evt) => changeValue(evt)}
-            type="password"
-            name="password"
-            minLength={8}
+            name="name"
+            minLength={5}
+            maxLength={30}
             required
           ></input>{' '}
-          <label>password</label>
-          <span>{errors.password}</span>
+          <label>должность</label>
+          <span>{errors.positionWork}</span>
           <input
-            value={value.password ?? ''}
+            pattern="^((?!\s{2}).)*$"
+            value={value.positionWork ?? ''}
             onChange={(evt) => changeValue(evt)}
-            type="password"
-            name="password"
-            minLength={8}
+            name="positionWork"
+            minLength={5}
+            maxLength={30}
             required
           ></input>
         </>
