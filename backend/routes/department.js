@@ -3,7 +3,6 @@ const { celebrate, Joi } = require('celebrate');
 
 const {
   createDepartment,
-  getDepartmentId,
   addInDepartmentGroup,
 } = require('../controllers/department');
 
@@ -18,12 +17,6 @@ departmentRouter.post(
   }),
   createDepartment,
 );
-
-departmentRouter.get('/:id', celebrate({
-  params: Joi.object().keys({
-    id: Joi.string().hex().length(24).required(),
-  }),
-}), getDepartmentId);
 
 departmentRouter.put('/:idDepartment', celebrate({
   params: Joi.object().keys({

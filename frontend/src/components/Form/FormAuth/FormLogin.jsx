@@ -4,6 +4,7 @@ import Style from '../Form.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { killAllStateFormValidetion } from '../../../redax/slices/formValidetionSlice';
+import { fetchLoginUser } from '../../../redax/slices/authSlice';
 
 export default function FormLogin() {
   const navigate = useNavigate();
@@ -15,8 +16,14 @@ export default function FormLogin() {
 
   const hendleSubmit = (evt) => {
     evt.preventDefault();
-    //dispatch(fetchAddNewDepartment(evt.target.name.value));
+    dispatch(
+      fetchLoginUser({
+        email: evt.target.email.value,
+        password: evt.target.password.value,
+      })
+    );
   };
+  
   return (
     <FormAuth hendleSubmit={hendleSubmit} textSubmit={'Войти'}>
       {' '}

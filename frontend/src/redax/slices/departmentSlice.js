@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { departmentApi } from '../../utils/DepartmentApi';
+import { notAuthRequest } from '../../utils/NotAuthRequest';
 
 export const fetchAddNewDepartment = createAsyncThunk(
   'page/fetchAddNewDepartment',
@@ -13,7 +14,7 @@ export const fetchAddNewDepartment = createAsyncThunk(
 export const fetchGetAllDepartment = createAsyncThunk(
   'page/fetchGetAllDepartment',
   async (params, thunkAPI) => {
-    const data = await departmentApi.getAllDepartment();
+    const data = await notAuthRequest.getAllDepartment();
     return data;
   }
 );
@@ -21,7 +22,7 @@ export const fetchGetAllDepartment = createAsyncThunk(
 export const fetchGetDepartmentId = createAsyncThunk(
   'page/fetchGetDepartmentId',
   async (params, thunkAPI) => {
-    const data = await departmentApi.getDepartmentId(params);
+    const data = await notAuthRequest.getDepartmentId(params);
     return data;
   }
 );
@@ -102,7 +103,7 @@ const departmentSlice = createSlice({
       fetchAddEquipmentDepartment.fulfilled,
       (state, { payload }) => {
         // state.showPreloader = false;
-         console.log(payload);
+        console.log(payload);
       }
     );
     builder.addCase(fetchAddEquipmentDepartment.rejected, (state, action) => {

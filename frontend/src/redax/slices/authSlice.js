@@ -23,7 +23,7 @@ export const fetchLoginUser = createAsyncThunk(
 const initialState = {
   fopmReg: false,
   //fopmLogin: false,
-  // token: localStorage.getItem('token'),
+  token: localStorage.getItem('token'),
   // showPreloader: false,
   // textArrAnswerServer: '',
 };
@@ -36,9 +36,9 @@ const authSlice = createSlice({
     //   state.textArrAnswerServer = '';
     // },
     killAllStateAuth(state) {
-      // state.fopmReg = false;
+      state.fopmReg = false;
       // state.fopmSign = false;
-      // state.token = '';
+      state.token = '';
       // state.showPreloader = false;
       // state.textArrAnswerServer = '';
     },
@@ -61,7 +61,7 @@ const authSlice = createSlice({
       console.log('запрос на регистрацию');
     });
     builder.addCase(fetchAddUser.fulfilled, (state, { payload }) => {
-      console.log(payload);
+      //console.log(payload);
     });
     builder.addCase(fetchAddUser.rejected, (state, action) => {
       console.log('ошибка регистрации');
@@ -74,9 +74,9 @@ const authSlice = createSlice({
       console.log('запрос на авторизацию');
     });
     builder.addCase(fetchLoginUser.fulfilled, (state, { payload }) => {
-      console.log(payload.token);
-      // localStorage.setItem('token', payload.token);
-      // state.token = payload.token;
+      //console.log(payload.token);
+      localStorage.setItem('token', payload.token);
+      state.token = payload.token;
     });
     builder.addCase(fetchLoginUser.rejected, (state, action) => {
       // state.textArrAnswerServer = action.error.message;

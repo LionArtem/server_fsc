@@ -12,21 +12,9 @@ class DepartmentApi {
     }).then(this._checkResponse);
   }
 
-  getAllDepartment() {
-    return fetch(this.baseUrl, {
-      method: 'get',
-      headers: this.headers,
-    }).then(this._checkResponse);
-  }
-
-  getDepartmentId(id) {
-    return fetch(`${this.baseUrl}/${id}`, {
-      method: 'GET',
-      headers: this.headers,
-    }).then(this._checkResponse);
-  }
 
   addEquipmentDepartment(params) {
+    console.log(localStorage.getItem('token'));
     const { idDepartment, titleGroup } = params;
     return fetch(`${this.baseUrl}/${idDepartment}`, {
       method: 'PUT',
@@ -67,6 +55,7 @@ const departmentApi = new DepartmentApi({
   baseUrl: 'http://localhost:3000/departmen',
   // baseUrl: 'https://api.my-live.website/topic',
   headers: {
+    authorization: `Bearer ${localStorage.getItem('token')}`,
     'content-type': 'application/json',
   },
 });
