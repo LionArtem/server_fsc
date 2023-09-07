@@ -35,7 +35,7 @@ const authSlice = createSlice({
     //   state.textArrAnswerServer = '';
     // },
     killAllStateAuth(state) {
-      state.fopmReg = false;
+      //state.fopmReg = false;
       // state.fopmSign = false;
       state.token = '';
       // state.showPreloader = false;

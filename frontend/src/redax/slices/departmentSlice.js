@@ -44,9 +44,10 @@ const departmentSlice = createSlice({
   name: 'department',
   initialState,
   reducers: {
-    killAllStateTopic(state) {
-      state.department = '';
-    },
+    // killAllStateDepartment(state) {
+    //   state.department = {};
+    //   state.ListDepartment = [];
+    // },
     addDepartment(state, action) {
       state.department = action.payload;
     },
@@ -115,5 +116,5 @@ const departmentSlice = createSlice({
 });
 
 export const selectDepartment = (state) => state.department;
-export const { killAllStateTopic, addDepartment } = departmentSlice.actions;
+export const { addDepartment } = departmentSlice.actions;
 export default departmentSlice.reducer;

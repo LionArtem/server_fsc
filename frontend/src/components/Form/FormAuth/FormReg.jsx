@@ -3,10 +3,7 @@ import Form from '../Form';
 import { useNavigate } from 'react-router-dom';
 import Style from '../Form.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchAddUser,
-  fetchLoginUser,
-} from '../../../redax/slices/authSlice';
+import { fetchAddUser, fetchLoginUser } from '../../../redax/slices/authSlice';
 import {
   killAllStateFormValidetion,
   setValue,
@@ -40,6 +37,7 @@ export default function FormReg() {
             password: evt.target.password.value,
           })
         );
+        navigate('/');
       }
     });
   };
@@ -56,10 +54,7 @@ export default function FormReg() {
   };
 
   return (
-    <Form
-      hendleSubmit={hendleSubmit}
-      textSubmit={'Зарегистрироваться'}
-    >
+    <Form hendleSubmit={hendleSubmit} textSubmit={'Зарегистрироваться'}>
       <label>e-mail</label>
       <span>{errors.email}</span>
       <input

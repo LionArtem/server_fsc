@@ -3,11 +3,11 @@
   font-size: 16px;
   font-weight: 400;
   margin: 0px 0px 0px 5px;
-  padding: 15px 0px 15px 5px;
+  padding: 0px 0px 0px 5px;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .footer__user-name {
     font-size: 100%;
-  } 
+  }
 }

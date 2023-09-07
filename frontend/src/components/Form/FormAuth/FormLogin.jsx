@@ -8,13 +8,15 @@ import {
   setValue,
   selectformValidetion,
 } from '../../../redax/slices/formValidetionSlice';
-import { fetchLoginUser } from '../../../redax/slices/authSlice';
+import { fetchLoginUser, selectAuth } from '../../../redax/slices/authSlice';
+import { fetchGetUser } from '../../../redax/slices/userSlice';
 
 export default function FormLogin() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { value, errors } = useSelector(selectformValidetion);
+  const { token } = useSelector(selectAuth);
 
   React.useEffect(() => {
     return () => dispatch(killAllStateFormValidetion());
@@ -27,7 +29,12 @@ export default function FormLogin() {
         email: evt.target.email.value,
         password: evt.target.password.value,
       })
-    );
+    ).then((res) => {
+      if (res.meta.requestStatus === 'fulfilled') {
+        navigate('/');
+        dispatch(fetchGetUser(token));
+      }
+    });
   };
 
   const changeValue = (evt) => {

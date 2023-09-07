@@ -66,16 +66,16 @@ const userSlice = createSlice({
     // addTextSuccess(state, action) {
     //   state.textAnswerRequest = action.payload;
     // },
-    // killAllStateUser(state) {
-    //   state.user = {};
-    //   state.allMessagesAndAuthors = [];
-    //   state.showPreloader = false;
-    //   state.textAnswerRequest = '';
-    //   state.successRequest = false;
-    //   state.showSceletonPage = false;
-    //   state.errServer = false;
-    //   state.errServerUserMessage = false;
-    // },
+    killAllStateUser(state) {
+      state.user = {};
+      // state.allMessagesAndAuthors = [];
+      // state.showPreloader = false;
+      // state.textAnswerRequest = '';
+      // state.successRequest = false;
+      // state.showSceletonPage = false;
+      // state.errServer = false;
+      // state.errServerUserMessage = false;
+    },
   },
   extraReducers: (builder) => {
     // запрос на получение текущего пользователя
@@ -149,5 +149,5 @@ const userSlice = createSlice({
 
 export const selectUser = (state) => state.user;
 
-export const {} = userSlice.actions;
+export const { killAllStateUser } = userSlice.actions;
 export default userSlice.reducer;

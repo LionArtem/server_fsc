@@ -9,15 +9,19 @@ import FormDepartmen from './components/Form/FormDepartmen/FormDepartmen';
 import FormEquipmentGroup from './components/Form/FormDepartmen/FormEquipmentGroup';
 import FormLogin from './components/Form/FormAuth/FormLogin';
 import FormReg from './components/Form/FormAuth/FormReg';
-import { fetchGetUser, selectUser } from '../src/redax/slices/userSlice';
+import { fetchGetUser } from '../src/redax/slices/userSlice';
+import { selectAuth } from './redax/slices/authSlice';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
   const dispatch = useDispatch();
-  const { token } = useSelector(selectUser);
+  const { token } = useSelector(selectAuth);
 
   React.useEffect(() => {
-    dispatch(fetchGetUser(token));
+    if (token) {
+      dispatch(fetchGetUser(token));
+    }
   }, []);
 
   return (
