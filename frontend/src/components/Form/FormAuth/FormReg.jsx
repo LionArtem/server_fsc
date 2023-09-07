@@ -1,27 +1,27 @@
 import React from 'react';
-import FormAuth from './FormAuth';
+import Form from '../Form';
 import { useNavigate } from 'react-router-dom';
 import Style from '../Form.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setfopmReg,
   fetchAddUser,
   fetchLoginUser,
 } from '../../../redax/slices/authSlice';
-import { killAllStateFormValidetion } from '../../../redax/slices/formValidetionSlice';
+import {
+  killAllStateFormValidetion,
+  setValue,
+  selectformValidetion,
+} from '../../../redax/slices/formValidetionSlice';
 
 export default function FormReg() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const clearComponent = () => {
-    dispatch(setfopmReg(false));
-    dispatch(killAllStateFormValidetion());
-  };
+  const { value, errors } = useSelector(selectformValidetion);
 
   React.useEffect(() => {
-    dispatch(setfopmReg(true));
-    return () => clearComponent();
+    return () => dispatch(killAllStateFormValidetion());
   }, []);
 
   const hendleSubmit = (evt) => {
@@ -45,12 +45,67 @@ export default function FormReg() {
     });
   };
 
+  const changeValue = (evt) => {
+    dispatch(
+      setValue({
+        value: evt.target.value,
+        name: evt.target.name,
+        errors: evt.target.validationMessage,
+        valid: evt.target.closest('form').checkValidity(),
+      })
+    );
+  };
+
   return (
-    <FormAuth hendleSubmit={hendleSubmit} textSubmit={'Зарегистрироваться'}>
-      {' '}
+    <Form
+      hendleSubmit={hendleSubmit}
+      textSubmit={'Зарегистрироваться'}
+    >
+      <label>e-mail</label>
+      <span>{errors.email}</span>
+      <input
+        pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z0-9_\-]+"
+        value={value.email ?? ''}
+        onChange={(evt) => changeValue(evt)}
+        type="email"
+        name="email"
+        required
+      ></input>
+      <label>пароль</label>
+      <span>{errors.password}</span>
+      <input
+        value={value.password ?? ''}
+        onChange={(evt) => changeValue(evt)}
+        type="password"
+        name="password"
+        minLength={8}
+        required
+      ></input>
+      <label>имя</label>
+      <span>{errors.name}</span>
+      <input
+        pattern="^((?!\s{2}).)*$"
+        value={value.name ?? ''}
+        onChange={(evt) => changeValue(evt)}
+        name="name"
+        minLength={5}
+        maxLength={30}
+        required
+      ></input>{' '}
+      <label>должность</label>
+      <span>{errors.positionWork}</span>
+      <input
+        pattern="^((?!\s{2}).)*$"
+        value={value.positionWork ?? ''}
+        onChange={(evt) => changeValue(evt)}
+        name="positionWork"
+        minLength={5}
+        maxLength={30}
+        required
+      ></input>
       <p className={Style.text_auth}>
         Зарегистрированны?<span onClick={() => navigate('/login')}>Войти</span>
       </p>
-    </FormAuth>
+    </Form>
   );
 }

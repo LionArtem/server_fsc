@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FormAdd from '../FormAdd';
+import Form from '../Form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -8,8 +8,15 @@ import {
   selectDepartment,
 } from '../../../redax/slices/departmentSlice';
 
+import {
+  selectformValidetion,
+  setValue,
+} from '../../../redax/slices/formValidetionSlice';
+
 export default function FormEquipmentGroup() {
   const dispatch = useDispatch();
+
+  const { value, errors } = useSelector(selectformValidetion);
 
   const { department } = useSelector(selectDepartment);
 
@@ -26,7 +33,31 @@ export default function FormEquipmentGroup() {
     );
   };
 
+  const changeValue = (evt) => {
+    dispatch(
+      setValue({
+        value: evt.target.value,
+        name: evt.target.name,
+        errors: evt.target.validationMessage,
+        valid: evt.target.closest('form').checkValidity(),
+      })
+    );
+  };
+
   return (
-    <FormAdd hendleSubmit={hendleSubmit} placeholder="группа оборудования" />
+    <Form hendleSubmit={hendleSubmit} textSubmit={'Добавить'}>
+      {' '}
+      <span>{errors.name}</span>
+      <input
+        pattern="^((?!\s{2}).)*$"
+        maxLength={30}
+        minLength={3}
+        value={value.name ?? ''}
+        onChange={(evt) => changeValue(evt)}
+        required
+        name="name"
+        placeholder="группа оборудования"
+      />
+    </Form>
   );
 }

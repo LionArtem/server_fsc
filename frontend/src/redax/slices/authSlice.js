@@ -21,7 +21,6 @@ export const fetchLoginUser = createAsyncThunk(
 );
 
 const initialState = {
-  fopmReg: false,
   //fopmLogin: false,
   token: localStorage.getItem('token'),
   // showPreloader: false,
@@ -48,9 +47,6 @@ const authSlice = createSlice({
     //   state.showPreloader = false;
     //   state.textArrAnswerServer = '';
     // },
-    setfopmReg(state, action) {
-      state.fopmReg = action.payload;
-    },
     // setfopmLogin(state) {
     //   state.fopmSign = true;
     // },
@@ -89,8 +85,6 @@ const authSlice = createSlice({
 export const selectAuth = (state) => state.auth;
 
 export const {
-  setfopmReg,
-  setfopmLogin,
   killAllStateAuth,
   resetTextArrAnswerServer,
   resetForm,
