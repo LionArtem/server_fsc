@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Style from '../Form.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  setfopmReg,
   fetchAddUser,
   fetchLoginUser,
 } from '../../../redax/slices/authSlice';

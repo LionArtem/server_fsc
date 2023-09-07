@@ -1,22 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import login from '../../image/275.svg';
 import Style from './Footer.module.scss';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redax/slices/userSlice';
 
 function Footer() {
   const navigate = useNavigate();
+  const { user } = useSelector(selectUser);
+
   return (
     <footer className="footer">
-      <p className="footer__copyright">Артём Гриневич</p>
-      <nav>
-        <a
-          className="footer__link-vk"
-          href="https://vk.com/id82204125"
-          target="_blank"
-          rel="noreferrer"
-        >
-          (Вконтакте)
-        </a>
-      </nav>
+      <p className="footer__user-name">{user.name}</p>
       <img
         onClick={() => navigate('/login')}
         className={Style.login_img}
