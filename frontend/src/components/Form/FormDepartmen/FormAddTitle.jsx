@@ -6,7 +6,11 @@ import {
 } from '../../../redax/slices/formValidetionSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function FormAddTitle({ hendleSubmit, textPlaceholder }) {
+export default function FormAddTitle({
+  hendleSubmit,
+  textPlaceholder,
+  linkExit,
+}) {
   const dispatch = useDispatch();
   const { value, errors } = useSelector(selectformValidetion);
 
@@ -22,7 +26,11 @@ export default function FormAddTitle({ hendleSubmit, textPlaceholder }) {
   };
 
   return (
-    <Form hendleSubmit={hendleSubmit} textSubmit={'Добавить'}>
+    <Form
+      hendleSubmit={hendleSubmit}
+      linkExit={linkExit}
+      textSubmit={'Добавить'}
+    >
       <span>{errors.name}</span>
       <input
         pattern="^((?!\s{2}).)*$"

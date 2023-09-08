@@ -8,6 +8,7 @@ export default function FormEquipment() {
     <FormAddTitle
       hendleSubmit={hendleSubmit}
       textPlaceholder="название оборудования"
+      linkExit={'/department'}
     ></FormAddTitle>
   );
 }

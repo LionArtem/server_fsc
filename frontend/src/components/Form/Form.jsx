@@ -6,12 +6,17 @@ import { selectformValidetion } from '../../redax/slices/formValidetionSlice';
 import ButtonSubmit from '../Buttons/ButtonSubmit/ButtonSubmit';
 import ButtonExit from './ButtonExit';
 
-export default function FormAdd({ hendleSubmit, children, textSubmit }) {
+export default function FormAdd({
+  hendleSubmit,
+  children,
+  textSubmit,
+  linkExit,
+}) {
   const { valid } = useSelector(selectformValidetion);
 
   return (
     <form onSubmit={(evt) => hendleSubmit(evt)} className={Style.form}>
-      <ButtonExit />
+      <ButtonExit linkExit={linkExit} />
       {children}
       <ButtonSubmit valid={valid} text={textSubmit} />
     </form>

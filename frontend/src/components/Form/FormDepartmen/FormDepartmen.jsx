@@ -17,6 +17,7 @@ export default function FormDepartmen() {
     <FormAddTitle
       hendleSubmit={hendleSubmit}
       textPlaceholder="отделение"
+      linkExit="/"
     ></FormAddTitle>
   );
 }

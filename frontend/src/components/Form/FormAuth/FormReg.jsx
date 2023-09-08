@@ -54,7 +54,11 @@ export default function FormReg() {
   };
 
   return (
-    <Form hendleSubmit={hendleSubmit} textSubmit={'Зарегистрироваться'}>
+    <Form
+      hendleSubmit={hendleSubmit}
+      textSubmit={'Зарегистрироваться'}
+      linkExit={'/'}
+    >
       <label>e-mail</label>
       <span>{errors.email}</span>
       <input

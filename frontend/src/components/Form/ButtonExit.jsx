@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { killAllStateFormValidetion } from '../../redax/slices/formValidetionSlice';
 import { useDispatch } from 'react-redux';
 
-export default function ButtonExit() {
+export default function ButtonExit({ linkExit }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ export default function ButtonExit() {
     <div
       className={Style.clouse}
       onClick={() => {
-        navigate('/');
+        navigate(linkExit);
       }}
     ></div>
   );

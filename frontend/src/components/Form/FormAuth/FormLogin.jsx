@@ -49,7 +49,7 @@ export default function FormLogin() {
   };
 
   return (
-    <Form hendleSubmit={hendleSubmit} textSubmit={'Войти'}>
+    <Form hendleSubmit={hendleSubmit} textSubmit={'Войти'} linkExit={'/'}>
       <label>e-mail</label>
       <span>{errors.email}</span>
       <input

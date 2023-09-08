@@ -30,6 +30,7 @@ export default function FormEquipmentGroup() {
     <FormAddTitle
       hendleSubmit={hendleSubmit}
       textPlaceholder="группа оборудования"
+      linkExit={'/department'}
     />
   );
 }
