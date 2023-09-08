@@ -36,9 +36,9 @@ const getAllDepartment = (req, res, next) => {
 const getDepartmentId = (req, res, next) => {
   const { id } = req.params;
   Department.findById(id)
-    .then((user) => {
-      if (user) {
-        res.send(user);
+    .then((department) => {
+      if (department) {
+        res.send(department);
         return;
       }
       throw new NotFoundError('отделение не найден');
@@ -70,9 +70,43 @@ const addInDepartmentGroup = (req, res, next) => {
     },
     { new: true },
   )
-    .then((resTopic) => {
-      if (resTopic) {
-        res.send(resTopic);
+    .then((resDepartment) => {
+      if (resDepartment) {
+        res.send(resDepartment);
+        return;
+      }
+      throw new NotFoundError('отделение с таким id не найдена');
+    })
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        const error = new IncorrectErr('не корректные данные');
+        next(error);
+      } else {
+        next(err);
+      }
+    });
+};
+
+const addInDepartmentEquipment = (req, res, next) => {
+  const { idDepartment } = req.params;
+  const {
+    titleEquipment,
+  } = req.body;
+
+  Department.findByIdAndUpdate(
+    idDepartment,
+    {
+      $push: {
+        listEquipment: {
+          titleEquipment,
+        },
+      },
+    },
+    { new: true },
+  )
+    .then((resDepartment) => {
+      if (resDepartment) {
+        res.send(resDepartment);
         return;
       }
       throw new NotFoundError('отделение с таким id не найдена');
@@ -92,4 +126,5 @@ module.exports = {
   getAllDepartment,
   getDepartmentId,
   addInDepartmentGroup,
+  addInDepartmentEquipment,
 };

@@ -4,6 +4,7 @@ const { celebrate, Joi } = require('celebrate');
 const {
   createDepartment,
   addInDepartmentGroup,
+  addInDepartmentEquipment,
 } = require('../controllers/department');
 
 departmentRouter.post(
@@ -27,5 +28,15 @@ departmentRouter.put('/:idDepartment', celebrate({
       titleGroup: Joi.string().required().min(3).max(30),
     }),
 }), addInDepartmentGroup);
+
+departmentRouter.put('/:idDepartment/equipment', celebrate({
+  params: Joi.object().keys({
+    idDepartment: Joi.string().hex().length(24).required(),
+  }),
+  body: Joi.object()
+    .keys({
+      titleEquipment: Joi.string().required().min(3).max(30),
+    }),
+}), addInDepartmentEquipment);
 
 module.exports = departmentRouter;

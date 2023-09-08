@@ -8,9 +8,11 @@ import {
 } from '../../../redax/slices/departmentSlice';
 
 import FormAddTitle from './FormAddTitle';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormEquipmentGroup() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { department } = useSelector(selectDepartment);
 
   const hendleSubmit = (evt) => {
@@ -23,7 +25,11 @@ export default function FormEquipmentGroup() {
         idDepartment,
         titleGroup: evt.target.name.value,
       })
-    );
+    ).then((res) => {
+      if (res.meta.requestStatus === 'fulfilled') {
+        navigate(-1);
+      }
+    });
   };
 
   return (

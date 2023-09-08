@@ -14,13 +14,24 @@ class DepartmentApi {
 
 
   addEquipmentDepartment(params) {
-    console.log(localStorage.getItem('token'));
     const { idDepartment, titleGroup } = params;
     return fetch(`${this.baseUrl}/${idDepartment}`, {
       method: 'PUT',
       headers: this.headers,
       body: JSON.stringify({
         titleGroup,
+      }),
+    }).then(this._checkResponse);
+  }
+
+  addEquipmentInGroup(params) {
+    const { idDepartment, titleEquipment } = params;
+    console.log(idDepartment, titleEquipment);
+    return fetch(`${this.baseUrl}/${idDepartment}/equipment`, {
+      method: 'PUT',
+      headers: this.headers,
+      body: JSON.stringify({
+        titleEquipment,
       }),
     }).then(this._checkResponse);
   }
