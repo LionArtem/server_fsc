@@ -13,6 +13,7 @@ import { fetchGetUser } from '../src/redax/slices/userSlice';
 import { selectAuth } from './redax/slices/authSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
+import FormEquipment from './components/Form/FormDepartmen/FormEquipment';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
         <Route path="/reg" element={<FormReg />} />
         <Route path="/form_departmen" element={<FormDepartmen />} />
         <Route path="/Form_equipment_roup" element={<FormEquipmentGroup />} />
+        <Route path="/Form_equipment" element={<FormEquipment />} />
         <Route path="*" element={<NodFound />} />
       </Routes>
     </div>
