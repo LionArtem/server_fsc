@@ -16,6 +16,7 @@ function Department() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { department } = useSelector(selectDepartment);
+  console.log(department);
 
   React.useEffect(() => {
     dispatch(
@@ -39,7 +40,7 @@ function Department() {
         {department.equipmentGroup &&
           department.equipmentGroup.length > 0 &&
           department.equipmentGroup.map((obj, i) => (
-            <DepartmentCard key={i} subTitle={obj.titleGroup}>
+            <DepartmentCard key={i} idGroup={obj._id} subTitle={obj.titleGroup}>
               {obj.listEquipment.map((data, i) => (
                 <NodeLink key={i} title={data.titleEquipment} />
               ))}

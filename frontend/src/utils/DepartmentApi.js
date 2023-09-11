@@ -12,7 +12,6 @@ class DepartmentApi {
     }).then(this._checkResponse);
   }
 
-
   addEquipmentDepartment(params) {
     const { idDepartment, titleGroup } = params;
     return fetch(`${this.baseUrl}/${idDepartment}`, {
@@ -25,13 +24,13 @@ class DepartmentApi {
   }
 
   addEquipmentInGroup(params) {
-    const { idDepartment, titleEquipment } = params;
-    console.log(idDepartment, titleEquipment);
+    const { idDepartment, titleEquipment, idGroup } = params;
     return fetch(`${this.baseUrl}/${idDepartment}/equipment`, {
       method: 'PUT',
       headers: this.headers,
       body: JSON.stringify({
         titleEquipment,
+        idGroup,
       }),
     }).then(this._checkResponse);
   }

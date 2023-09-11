@@ -53,26 +53,40 @@ const getDepartmentId = (req, res, next) => {
     });
 };
 
-const addInDepartmentGroup = (req, res, next) => {
+const getEquipmentGroupId = (req, res, next) => {
+  const { id } = req.params;
+  Department.findById(id)
+    .then((department) => {
+      if (department) {
+        res.send(department);
+        return;
+      }
+      throw new NotFoundError('отделение не найден');
+    })
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        const error = new IncorrectErr('Некорректный id');
+        next(error);
+      } else {
+        next(err);
+      }
+    });
+};
+
+const addEquipmentGroup = (req, res, next) => {
   const { idDepartment } = req.params;
   const {
     titleGroup,
   } = req.body;
 
-  Department.findByIdAndUpdate(
+  Department.findById(
     idDepartment,
-    {
-      $push: {
-        equipmentGroup: {
-          titleGroup,
-        },
-      },
-    },
-    { new: true },
   )
     .then((resDepartment) => {
       if (resDepartment) {
-        res.send(resDepartment);
+        resDepartment.equipmentGroup.push({ titleGroup });
+        resDepartment.save();
+        res.send(resDepartment.equipmentGroup);
         return;
       }
       throw new NotFoundError('отделение с таким id не найдена');
@@ -91,25 +105,26 @@ const addInDepartmentEquipment = (req, res, next) => {
   const { idDepartment } = req.params;
   const {
     titleEquipment,
+    idGroup,
   } = req.body;
 
-  Department.findByIdAndUpdate(
+  Department.findById(
     idDepartment,
-    {
-      $push: {
-        listEquipment: {
-          titleEquipment,
-        },
-      },
-    },
-    { new: true },
   )
     .then((resDepartment) => {
       if (resDepartment) {
-        res.send(resDepartment);
-        return;
+        if (resDepartment.equipmentGroup.id(idGroup)) {
+          const group = resDepartment.equipmentGroup.id(idGroup);
+          group.listEquipment.push({ titleEquipment });
+          resDepartment.save().then(() => {
+            res.send(group.listEquipment);
+          });
+        } else {
+          throw new NotFoundError('группа отделения с таким id не найдена');
+        }
+      } else {
+        throw new NotFoundError('отделение с таким id не найдена');
       }
-      throw new NotFoundError('отделение с таким id не найдена');
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -125,6 +140,7 @@ module.exports = {
   createDepartment,
   getAllDepartment,
   getDepartmentId,
-  addInDepartmentGroup,
+  addEquipmentGroup,
   addInDepartmentEquipment,
+  getEquipmentGroupId,
 };

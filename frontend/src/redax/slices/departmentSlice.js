@@ -46,16 +46,19 @@ export const fetchAddEquipmentInGroup = createAsyncThunk(
 const initialState = {
   ListDepartment: [],
   department: {},
+  idGroup: '',
 };
 
 const departmentSlice = createSlice({
   name: 'department',
   initialState,
   reducers: {
-    // killAllStateDepartment(state) {
-    //   state.department = {};
-    //   state.ListDepartment = [];
-    // },
+    killAllStateDepartment(state) {
+      state.idGroup = '';
+    },
+    addIdGroup(state, action) {
+      state.idGroup = action.payload;
+    },
     addDepartment(state, action) {
       state.department = action.payload;
     },
@@ -141,5 +144,5 @@ const departmentSlice = createSlice({
 });
 
 export const selectDepartment = (state) => state.department;
-export const { addDepartment } = departmentSlice.actions;
+export const { addDepartment, addIdGroup } = departmentSlice.actions;
 export default departmentSlice.reducer;

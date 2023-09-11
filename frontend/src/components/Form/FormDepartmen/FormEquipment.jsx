@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 export default function FormEquipment() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { department } = useSelector(selectDepartment);
+  const { department, idGroup } = useSelector(selectDepartment);
 
   const hendleSubmit = (evt) => {
     evt.preventDefault();
@@ -21,6 +21,7 @@ export default function FormEquipment() {
       fetchAddEquipmentInGroup({
         idDepartment,
         titleEquipment: evt.target.name.value,
+        idGroup,
       })
     ).then((res) => {
       if (res.meta.requestStatus === 'fulfilled') {
