@@ -42,7 +42,7 @@ function Department() {
           department.equipmentGroup.map((obj, i) => (
             <DepartmentCard key={i} idGroup={obj._id} subTitle={obj.titleGroup}>
               {obj.listEquipment.map((data, i) => (
-                <NodeLink key={i} title={data.titleEquipment} />
+                <NodeLink key={i} data={data} />
               ))}
             </DepartmentCard>
           ))}

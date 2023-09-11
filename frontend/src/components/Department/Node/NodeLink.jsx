@@ -1,13 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function NodeLink(props) {
-  const { title, link } = props;
+  const navigate = useNavigate();
+  const { data } = props;
+  console.log(data);
+  function onListJob() {
+    navigate('/description');
+  }
   return (
     <li className="navigation__title">
-      <Link className="navigation__list-links" to={link}>
-        <h3 className="navigation__text">{title}</h3>
-      </Link>
+      <h3
+        onClick={() => {
+          onListJob();
+        }}
+        className="navigation__text"
+      >
+        {data.titleEquipment}
+      </h3>
     </li>
   );
 }
