@@ -1,7 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectDepartment } from '../../../redax/slices/departmentSlice';
 
 export default function Description() {
   const listJob = '';
+
+  console.log(localStorage.getItem('idDepartment'));
+  console.log(localStorage.getItem('idGroup'));
+  console.log(localStorage.getItem('idEquipment'));
 
   return (
     <div className="job-description navigation">

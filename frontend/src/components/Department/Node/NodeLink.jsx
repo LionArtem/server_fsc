@@ -1,12 +1,18 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addIdGroup } from '../../../redax/slices/departmentSlice';
 
 export default function NodeLink(props) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { data } = props;
-  console.log(data);
+  const { data, idGroup } = props;
+  //console.log(data);
   function onListJob() {
-    console.log(data);
+    localStorage.setItem('idEquipment', data._id);
+    localStorage.setItem('idGroup', idGroup);
+    // dispatch(addIdGroup(data._id));
+    //console.log(data);
     navigate('/description');
   }
   return (
