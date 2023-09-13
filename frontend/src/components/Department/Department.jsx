@@ -16,7 +16,7 @@ function Department() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { department } = useSelector(selectDepartment);
-  console.log(department);
+  //console.log(department);
 
   React.useEffect(() => {
     dispatch(

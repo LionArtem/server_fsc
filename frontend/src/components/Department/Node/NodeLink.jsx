@@ -6,6 +6,7 @@ export default function NodeLink(props) {
   const { data } = props;
   console.log(data);
   function onListJob() {
+    console.log(data);
     navigate('/description');
   }
   return (
