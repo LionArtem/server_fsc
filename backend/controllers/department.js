@@ -53,25 +53,25 @@ const getDepartmentId = (req, res, next) => {
     });
 };
 
-const getEquipmentGroupId = (req, res, next) => {
-  const { id } = req.params;
-  Department.findById(id)
-    .then((department) => {
-      if (department) {
-        res.send(department);
-        return;
-      }
-      throw new NotFoundError('отделение не найден');
-    })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        const error = new IncorrectErr('Некорректный id');
-        next(error);
-      } else {
-        next(err);
-      }
-    });
-};
+// const getEquipmentGroupId = (req, res, next) => {
+//   const { id } = req.params;
+//   Department.findById(id)
+//     .then((department) => {
+//       if (department) {
+//         res.send(department);
+//         return;
+//       }
+//       throw new NotFoundError('отделение не найден');
+//     })
+//     .catch((err) => {
+//       if (err.name === 'CastError') {
+//         const error = new IncorrectErr('Некорректный id');
+//         next(error);
+//       } else {
+//         next(err);
+//       }
+//     });
+// };
 
 const addEquipmentGroup = (req, res, next) => {
   const { idDepartment } = req.params;
@@ -136,11 +136,42 @@ const addInDepartmentEquipment = (req, res, next) => {
     });
 };
 
+const getEquipmentId = (req, res, next) => {
+  const { idDepartment, idGroup, idEquipment } = req.params;
+  Department.findById(
+    idDepartment,
+  ).then((department) => {
+    if (department) {
+      if (department.equipmentGroup.id(idGroup)) {
+        const group = department.equipmentGroup.id(idGroup);
+        if (group.listEquipment.id(idEquipment)) {
+          const equipment = group.listEquipment.id(idEquipment);
+          res.send(equipment);
+        } else {
+          throw new NotFoundError('оборудованиe с таким id не найдена');
+        }
+      } else {
+        throw new NotFoundError('группа оборудования с таким id не найдена');
+      }
+    } else {
+      throw new NotFoundError('отделение с таким id не найдена');
+    }
+  }).catch((err) => {
+    if (err.name === 'CastError') {
+      const error = new IncorrectErr('не корректные данные');
+      next(error);
+    } else {
+      next(err);
+    }
+  });
+};
+
 module.exports = {
   createDepartment,
   getAllDepartment,
   getDepartmentId,
   addEquipmentGroup,
   addInDepartmentEquipment,
-  getEquipmentGroupId,
+  // getEquipmentGroupId,
+  getEquipmentId,
 };

@@ -62,7 +62,7 @@ class DepartmentApi {
 }
 
 const departmentApi = new DepartmentApi({
-  baseUrl: 'http://localhost:3000/departmen',
+  baseUrl: 'http://localhost:3000/department',
   // baseUrl: 'https://api.my-live.website/topic',
   headers: {
     authorization: `Bearer ${localStorage.getItem('token')}`,

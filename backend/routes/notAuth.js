@@ -4,7 +4,8 @@ const { celebrate, Joi } = require('celebrate');
 const {
   getAllDepartment,
   getDepartmentId,
-  getEquipmentGroupId,
+  // getEquipmentGroupId,
+  getEquipmentId,
 } = require('../controllers/department');
 
 departmentRouter.get('/', getAllDepartment);
@@ -15,10 +16,18 @@ departmentRouter.get('/:id', celebrate({
   }),
 }), getDepartmentId);
 
-departmentRouter.get('/equipment/:id', celebrate({
+// departmentRouter.get('/equipment/:id', celebrate({
+//   params: Joi.object().keys({
+//     id: Joi.string().hex().length(24).required(),
+//   }),
+// }), getEquipmentGroupId);
+
+departmentRouter.get('/equipment/:idDepartment/:idGroup/:idEquipment', celebrate({
   params: Joi.object().keys({
-    id: Joi.string().hex().length(24).required(),
+    idDepartment: Joi.string().hex().length(24).required(),
+    idGroup: Joi.string().hex().length(24).required(),
+    idEquipment: Joi.string().hex().length(24).required(),
   }),
-}), getEquipmentGroupId);
+}), getEquipmentId);
 
 module.exports = departmentRouter;
