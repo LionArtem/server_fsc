@@ -19,7 +19,6 @@ class NotAuthRequest {
   }
 
   getEquipmentId({ idDepartment, idGroup, idEquipment }) {
-    console.log(idDepartment, idGroup, idEquipment);
     return fetch(
       `${this.baseUrl}/equipment/${idDepartment}/${idGroup}/${idEquipment}`,
       {

@@ -157,7 +157,7 @@ const departmentSlice = createSlice({
     builder.addCase(fetchGetEquipmentId.fulfilled, (state, { payload }) => {
       //state.showPreloader = false;
       state.listJobsEquipment = payload;
-      console.log(payload);
+      //console.log(payload);
     });
     builder.addCase(fetchGetEquipmentId.rejected, (state, action) => {
       console.log('ошибка получение списка работ по оборудованию');
