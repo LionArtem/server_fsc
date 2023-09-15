@@ -166,12 +166,62 @@ const getEquipmentId = (req, res, next) => {
   });
 };
 
+const addIntEquipmentJob = (req, res, next) => {
+  const { idDepartment, idGroup, idEquipment } = req.params;
+  const {
+    nameJob,
+    discription,
+    foto,
+    tools,
+    spareParts,
+    remedies,
+    safetyPrecautions,
+  } = req.body;
+  Department.findById(
+    idDepartment,
+  ).then((department) => {
+    if (department) {
+      if (department.equipmentGroup.id(idGroup)) {
+        const group = department.equipmentGroup.id(idGroup);
+        if (group.listEquipment.id(idEquipment)) {
+          const equipment = group.listEquipment.id(idEquipment);
+          equipment.listJobs.push({
+            nameJob,
+            discription,
+            foto,
+            tools,
+            spareParts,
+            remedies,
+            safetyPrecautions,
+          });
+          department.save().then(() => {
+            res.send(equipment.listJobs);
+          });
+        } else {
+          throw new NotFoundError('оборудованиe с таким id не найдена');
+        }
+      } else {
+        throw new NotFoundError('группа оборудования с таким id не найдена');
+      }
+    } else {
+      throw new NotFoundError('отделение с таким id не найдена');
+    }
+  }).catch((err) => {
+    if (err.name === 'CastError') {
+      const error = new IncorrectErr('не корректные данные');
+      next(error);
+    } else {
+      next(err);
+    }
+  });
+};
+
 module.exports = {
   createDepartment,
   getAllDepartment,
   getDepartmentId,
   addEquipmentGroup,
   addInDepartmentEquipment,
-  // getEquipmentGroupId,
+  addIntEquipmentJob,
   getEquipmentId,
 };

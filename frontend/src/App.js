@@ -19,6 +19,7 @@ import Description from './components/Department/Node/Description';
 function App() {
   const dispatch = useDispatch();
   const { token } = useSelector(selectAuth);
+  console.log(token);
 
   React.useEffect(() => {
     if (token) {

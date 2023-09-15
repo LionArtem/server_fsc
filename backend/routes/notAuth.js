@@ -16,12 +16,6 @@ departmentRouter.get('/department/:id', celebrate({
   }),
 }), getDepartmentId);
 
-// departmentRouter.get('/equipment/:id', celebrate({
-//   params: Joi.object().keys({
-//     id: Joi.string().hex().length(24).required(),
-//   }),
-// }), getEquipmentGroupId);
-
 departmentRouter.get('/equipment/:idDepartment/:idGroup/:idEquipment', celebrate({
   params: Joi.object().keys({
     idDepartment: Joi.string().hex().length(24).required(),

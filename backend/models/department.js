@@ -15,6 +15,20 @@ const cardSchema = new mongoose.Schema({
         type: String, minlength: 1, maxlength: 500, unique: true,
       },
       listJobs: [new mongoose.Schema({
+        nameJob: {
+          type: String,
+          minlength: 5,
+          maxlength: 50,
+          unique: true,
+          require: true,
+        },
+        discription: {
+          type: String,
+          minlength: 5,
+          maxlength: 50,
+          unique: true,
+          require: true,
+        },
         foto: {
           type: String,
           validate: {
