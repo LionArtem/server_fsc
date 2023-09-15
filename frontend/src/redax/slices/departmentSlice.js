@@ -43,10 +43,19 @@ export const fetchAddEquipmentInGroup = createAsyncThunk(
   }
 );
 
+export const fetchGetEquipmentId = createAsyncThunk(
+  'page/fetchGetEquipmentId',
+  async (params, thunkAPI) => {
+    const data = await notAuthRequest.getEquipmentId(params);
+    return data;
+  }
+);
+
 const initialState = {
   ListDepartment: [],
   department: {},
   idGroup: '',
+  listJobsEquipment: {},
 };
 
 const departmentSlice = createSlice({
@@ -137,6 +146,21 @@ const departmentSlice = createSlice({
     );
     builder.addCase(fetchAddEquipmentInGroup.rejected, (state, action) => {
       console.log('ошибка добавления в группу оборудования');
+      // state.showPreloader = false;
+      // state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
+    });
+
+    builder.addCase(fetchGetEquipmentId.pending, (state) => {
+      console.log('получение списка работ по оборудованию');
+      // state.showPreloader = true;
+    });
+    builder.addCase(fetchGetEquipmentId.fulfilled, (state, { payload }) => {
+      //state.showPreloader = false;
+      state.listJobsEquipment = payload;
+      console.log(payload);
+    });
+    builder.addCase(fetchGetEquipmentId.rejected, (state, action) => {
+      console.log('ошибка получение списка работ по оборудованию');
       // state.showPreloader = false;
       // state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
     });

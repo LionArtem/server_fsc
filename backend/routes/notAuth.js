@@ -8,9 +8,9 @@ const {
   getEquipmentId,
 } = require('../controllers/department');
 
-departmentRouter.get('/', getAllDepartment);
+departmentRouter.get('/department', getAllDepartment);
 
-departmentRouter.get('/:id', celebrate({
+departmentRouter.get('/department/:id', celebrate({
   params: Joi.object().keys({
     id: Joi.string().hex().length(24).required(),
   }),

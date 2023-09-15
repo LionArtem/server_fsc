@@ -1,19 +1,30 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectDepartment } from '../../../redax/slices/departmentSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchGetEquipmentId,
+  selectDepartment,
+} from '../../../redax/slices/departmentSlice';
 
 export default function Description() {
-  const listJob = '';
+  const dispatch = useDispatch();
 
-  console.log(localStorage.getItem('idDepartment'));
-  console.log(localStorage.getItem('idGroup'));
-  console.log(localStorage.getItem('idEquipment'));
+  const { listJobsEquipment } = useSelector(selectDepartment);
+
+  React.useEffect(() => {
+    dispatch(
+      fetchGetEquipmentId({
+        idDepartment: localStorage.getItem('idDepartment'),
+        idGroup: localStorage.getItem('idGroup'),
+        idEquipment: localStorage.getItem('idEquipment'),
+      })
+    );
+  }, []);
 
   return (
     <div className="job-description navigation">
       <div className="job-description__conteiner">
-        {listJob &&
-          listJob.description.map((obj, i) => (
+        {listJobsEquipment.length > 0 &&
+          listJobsEquipment.description.map((obj, i) => (
             <div key={i}>
               <p className="job-description__text">{obj.title}</p>
               {obj.src && (
@@ -26,16 +37,20 @@ export default function Description() {
             </div>
           ))}
         <h3 className="job-description__titl">инструмент:</h3>
-        <ul className="job-description__list">{listJob && listJob.tools}</ul>
+        <ul className="job-description__list">
+          {listJobsEquipment.length > 0 && listJobsEquipment.tools}
+        </ul>
         <h3 className="job-description__titl">Запчасти,метизы:</h3>
         <ul className="job-description__list">
-          {listJob && listJob.spareParts}
+          {listJobsEquipment.length > 0 && listJobsEquipment.spareParts}
         </ul>
         <h3 className="job-description__titl">СИЗ:</h3>
-        <ul className="job-description__list">{listJob && listJob.sIZ}</ul>
+        <ul className="job-description__list">
+          {listJobsEquipment.length > 0 && listJobsEquipment.sIZ}
+        </ul>
         <h3 className="job-description__titl">Мероприятия по ТБ:</h3>
         <ul className="job-description__list">
-          {listJob && listJob.safetyPrecautions}
+          {listJobsEquipment.length > 0 && listJobsEquipment.safetyPrecautions}
         </ul>
         {/* <button className="job-description__button-comment" type="button">
           Комментарии

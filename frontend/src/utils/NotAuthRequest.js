@@ -5,17 +5,28 @@ class NotAuthRequest {
   }
 
   getAllDepartment() {
-    return fetch(this.baseUrl, {
-      method: 'get',
+    return fetch(`${this.baseUrl}/department`, {
+      method: 'GET',
       headers: this.headers,
     }).then(this._checkResponse);
   }
 
   getDepartmentId(id) {
-    return fetch(`${this.baseUrl}/${id}`, {
+    return fetch(`${this.baseUrl}/department/${id}`, {
       method: 'GET',
       headers: this.headers,
     }).then(this._checkResponse);
+  }
+
+  getEquipmentId({ idDepartment, idGroup, idEquipment }) {
+    console.log(idDepartment, idGroup, idEquipment);
+    return fetch(
+      `${this.baseUrl}/equipment/${idDepartment}/${idGroup}/${idEquipment}`,
+      {
+        method: 'GET',
+        headers: this.headers,
+      }
+    ).then(this._checkResponse);
   }
 
   _checkResponse = (res) => {
@@ -28,7 +39,7 @@ class NotAuthRequest {
 
 const notAuthRequest = new NotAuthRequest({
   baseUrl: 'http://localhost:3000',
- // baseUrl: 'https://api.my-live.website',
+  // baseUrl: 'https://api.my-live.website',
   headers: { 'content-type': 'application/json' },
 });
 
