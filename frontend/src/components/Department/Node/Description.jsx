@@ -4,9 +4,12 @@ import {
   fetchGetEquipmentId,
   selectDepartment,
 } from '../../../redax/slices/departmentSlice';
+import ButtonsAdd from '../../Buttons/ButtonsAdd/ButtonsAdd';
+import { useNavigate } from 'react-router-dom';
 
 export default function Description() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { listJobsEquipment } = useSelector(selectDepartment);
   console.log(listJobsEquipment);
@@ -21,8 +24,13 @@ export default function Description() {
     );
   }, []);
 
+  const openForm = () => {
+    navigate('/Form_job');
+  };
+
   return (
     <div className="job-description navigation">
+      <ButtonsAdd openForm={openForm} />
       <div className="job-description__conteiner">
         <div>
           <p className="job-description__text">

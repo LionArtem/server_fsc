@@ -35,6 +35,37 @@ class DepartmentApi {
     }).then(this._checkResponse);
   }
 
+  addJob(params) {
+    const {
+      idDepartment,
+      idGroup,
+      idEquipment,
+      nameJob,
+      discription,
+      foto,
+      tools,
+      spareParts,
+      remedies,
+      safetyPrecautions,
+    } = params;
+    return fetch(
+      `${this.baseUrl}/equipment/${idDepartment}/${idGroup}/${idEquipment}`,
+      {
+        method: 'PUT',
+        headers: this.headers,
+        body: JSON.stringify({
+          nameJob,
+          discription,
+          foto,
+          tools,
+          spareParts,
+          remedies,
+          safetyPrecautions,
+        }),
+      }
+    ).then(this._checkResponse);
+  }
+
   // deleteMessage(params) {
   //   const { messageId, topicId } = params;
   //   return fetch(`${this.baseUrl}/${topicId}/message`, {

@@ -50,7 +50,7 @@ departmentRouter.put('/equipment/:idDepartment/:idGroup/:idEquipment', celebrate
   body: Joi.object()
     .keys({
       nameJob: Joi.string().required().min(5).max(50),
-      discription: Joi.string().required().min(5).max(50),
+      discription: Joi.string().required().min(5).max(500),
       foto: Joi.string().pattern(regularAvatar),
       tools: Joi.string().min(5).max(500),
       spareParts: Joi.string().min(5).max(500),
