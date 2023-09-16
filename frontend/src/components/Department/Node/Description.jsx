@@ -30,25 +30,30 @@ export default function Description() {
           </p>
         </div>
         {listJobsEquipment.listJobs &&
-          listJobsEquipment.listJobs.map(() => (
-            <>
-              <img className="job-description__foto" src={'*'} alt={'alt'} />
+          listJobsEquipment.listJobs.map((data) => (
+            <div key={data._id}>
+              <h3 className="job-description__titl">Вид работы:</h3>
+              <p className="job-description__list">{data.nameJob}</p>
+              <h3 className="job-description__titl">Фото:</h3>
+              <img
+                className="job-description__foto"
+                src={data.foto}
+                alt={'оборудование'}
+              />
+              <h3 className="job-description__titl">Описание:</h3>
+              <p className="job-description__list">{data.discription}</p>
               <h3 className="job-description__titl">инструмент:</h3>
-              <p className="job-description__list">{listJobsEquipment.tools}</p>
+              <p className="job-description__list">{data.tools}</p>
               <h3 className="job-description__titl">Запчасти,метизы:</h3>
-              <p className="job-description__list">
-                {listJobsEquipment.spareParts}
-              </p>
+              <p className="job-description__list">{data.spareParts}</p>
               <h3 className="job-description__titl">СИЗ:</h3>
-              <p className="job-description__list">{listJobsEquipment.sIZ}</p>
+              <p className="job-description__list">{data.safetyPrecautions}</p>
               <h3 className="job-description__titl">Мероприятия по ТБ:</h3>
-              <p className="job-description__list">
-                {listJobsEquipment.safetyPrecautions}
-              </p>
+              <p className="job-description__list">{data.spareParts}</p>
               {/* <button className="job-description__button-comment" type="button">
           Комментарии
         </button> */}
-            </>
+            </div>
           ))}
       </div>
     </div>
