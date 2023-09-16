@@ -7,6 +7,7 @@ import {
 } from '../../../redax/slices/departmentSlice';
 import ButtonsAdd from '../../Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
+import ButtonExit from '../../Buttons/ButtonExit/ButtonExit';
 
 export default function Description() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ export default function Description() {
 
   return (
     <div className="job-description navigation">
+      <ButtonExit />
       <ButtonsAdd openForm={openForm} />
       <div className="job-description__conteiner">
         <div>
@@ -53,7 +55,8 @@ export default function Description() {
           listJobsEquipment.listJobs.map((data) => (
             <div key={data._id}>
               <h3 className="job-description__titl">
-                Вид работы:<p onClick={() => removeJob(data._id)}>удалить</p>
+                Вид работы:
+                <div onClick={() => removeJob(data._id)}>удалить</div>
               </h3>
               <p className="job-description__list">{data.nameJob}</p>
               <h3 className="job-description__titl">Фото:</h3>
