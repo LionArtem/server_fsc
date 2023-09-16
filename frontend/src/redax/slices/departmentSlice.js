@@ -59,6 +59,14 @@ export const fetchAddJob = createAsyncThunk(
   }
 );
 
+export const fetchRemoveJob = createAsyncThunk(
+  'page/fetchRemoveJob',
+  async (params, thunkAPI) => {
+    const data = await departmentApi.removeJob(params);
+    return data;
+  }
+);
+
 const initialState = {
   ListDepartment: [],
   department: {},
@@ -185,6 +193,21 @@ const departmentSlice = createSlice({
     });
     builder.addCase(fetchAddJob.rejected, (state, action) => {
       console.log('ошибка добавление работы по оборудованию');
+      // state.showPreloader = false;
+      // state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
+    });
+
+    builder.addCase(fetchRemoveJob.pending, (state) => {
+      console.log('удаление работы по оборудованию');
+      // state.showPreloader = true;
+    });
+    builder.addCase(fetchRemoveJob.fulfilled, (state, { payload }) => {
+      //state.showPreloader = false;
+      //state.listJobsEquipment = payload;
+      console.log(payload);
+    });
+    builder.addCase(fetchRemoveJob.rejected, (state, action) => {
+      console.log('ошибка удаления работы по оборудованию');
       // state.showPreloader = false;
       // state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
     });

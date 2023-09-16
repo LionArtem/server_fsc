@@ -67,23 +67,17 @@ class DepartmentApi {
     ).then(this._checkResponse);
   }
 
-  // deleteMessage(params) {
-  //   const { messageId, topicId } = params;
-  //   return fetch(`${this.baseUrl}/${topicId}/message`, {
-  //     method: 'PATCH',
-  //     headers: this.headers,
-  //     body: JSON.stringify({
-  //       messageId,
-  //     }),
-  //   }).then(this._checkResponse);
-  // }
+  removeJob(params) {
+    const { idDepartment, idGroup, idEquipment, idJob } = params;
 
-  // deleteTopic(params) {
-  //   return fetch(`${this.baseUrl}/${params}`, {
-  //     method: 'DELETE',
-  //     headers: this.headers,
-  //   }).then(this._checkResponse);
-  // }
+    return fetch(
+      `${this.baseUrl}/equipment/${idDepartment}/${idGroup}/${idEquipment}/${idJob}`,
+      {
+        method: 'PATCH',
+        headers: this.headers,
+      }
+    ).then(this._checkResponse);
+  }
 
   _checkResponse = (res) => {
     if (res.ok) {

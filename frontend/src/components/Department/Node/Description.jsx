@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchGetEquipmentId,
   selectDepartment,
+  fetchRemoveJob,
 } from '../../../redax/slices/departmentSlice';
 import ButtonsAdd from '../../Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +29,16 @@ export default function Description() {
     navigate('/Form_job');
   };
 
-  function removeJob(id) {}
+  function removeJob(id) {
+    dispatch(
+      fetchRemoveJob({
+        idDepartment: localStorage.getItem('idDepartment'),
+        idGroup: localStorage.getItem('idGroup'),
+        idEquipment: localStorage.getItem('idEquipment'),
+        idJob: id,
+      })
+    );
+  }
 
   return (
     <div className="job-description navigation">

@@ -60,7 +60,7 @@ departmentRouter.put('/equipment/:idDepartment/:idGroup/:idEquipment', celebrate
     }).unknown(true),
 }), addIntEquipmentJob);
 
-departmentRouter.delete(
+departmentRouter.patch(
   '/equipment/:idDepartment/:idGroup/:idEquipment/:idJob',
   celebrate({
     params: Joi.object().keys({
