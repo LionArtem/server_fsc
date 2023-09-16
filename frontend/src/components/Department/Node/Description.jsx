@@ -12,7 +12,7 @@ export default function Description() {
   const navigate = useNavigate();
 
   const { listJobsEquipment } = useSelector(selectDepartment);
-  console.log(listJobsEquipment);
+  // console.log(listJobsEquipment);
 
   React.useEffect(() => {
     dispatch(
@@ -28,6 +28,8 @@ export default function Description() {
     navigate('/Form_job');
   };
 
+  function removeJob(id) {}
+
   return (
     <div className="job-description navigation">
       <ButtonsAdd openForm={openForm} />
@@ -40,7 +42,9 @@ export default function Description() {
         {listJobsEquipment.listJobs &&
           listJobsEquipment.listJobs.map((data) => (
             <div key={data._id}>
-              <h3 className="job-description__titl">Вид работы:</h3>
+              <h3 className="job-description__titl">
+                Вид работы:<p onClick={() => removeJob(data._id)}>удалить</p>
+              </h3>
               <p className="job-description__list">{data.nameJob}</p>
               <h3 className="job-description__titl">Фото:</h3>
               {data.foto.length > 0 && (

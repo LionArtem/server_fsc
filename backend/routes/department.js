@@ -7,6 +7,7 @@ const {
   addEquipmentGroup,
   addInDepartmentEquipment,
   addIntEquipmentJob,
+  deleteJob,
 } = require('../controllers/department');
 
 departmentRouter.post(
@@ -58,5 +59,18 @@ departmentRouter.put('/equipment/:idDepartment/:idGroup/:idEquipment', celebrate
       safetyPrecautions: Joi.string().allow('').min(5).max(500),
     }).unknown(true),
 }), addIntEquipmentJob);
+
+departmentRouter.delete(
+  '/equipment/:idDepartment/:idGroup/:idEquipment/:idJob',
+  celebrate({
+    params: Joi.object().keys({
+      idDepartment: Joi.string().hex().length(24).required(),
+      idGroup: Joi.string().hex().length(24).required(),
+      idEquipment: Joi.string().hex().length(24).required(),
+      idJob: Joi.string().hex().length(24).required(),
+    }),
+  }),
+  deleteJob,
+);
 
 module.exports = departmentRouter;

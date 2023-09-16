@@ -216,6 +216,45 @@ const addIntEquipmentJob = (req, res, next) => {
   });
 };
 
+const deleteJob = (req, res, next) => {
+  const {
+    idDepartment, idGroup, idEquipment, idJob,
+  } = req.params;
+  Department.findById(
+    idDepartment,
+  ).then((department) => {
+    if (department) {
+      if (department.equipmentGroup.id(idGroup)) {
+        const group = department.equipmentGroup.id(idGroup);
+        if (group.listEquipment.id(idEquipment)) {
+          const equipment = group.listEquipment.id(idEquipment);
+          if (equipment.listJobs.id(idJob)) {
+            equipment.listJobs.id(idJob).deleteOne();
+            department.save().then(() => {
+              res.send(equipment);
+            });
+          } else {
+            throw new NotFoundError('работа с таким id не найдена');
+          }
+        } else {
+          throw new NotFoundError('оборудованиe с таким id не найдена');
+        }
+      } else {
+        throw new NotFoundError('группа оборудования с таким id не найдена');
+      }
+    } else {
+      throw new NotFoundError('отделение с таким id не найдена');
+    }
+  }).catch((err) => {
+    if (err.name === 'CastError') {
+      const error = new IncorrectErr('не корректные данные');
+      next(error);
+    } else {
+      next(err);
+    }
+  });
+};
+
 module.exports = {
   createDepartment,
   getAllDepartment,
@@ -224,4 +263,5 @@ module.exports = {
   addInDepartmentEquipment,
   addIntEquipmentJob,
   getEquipmentId,
+  deleteJob,
 };
