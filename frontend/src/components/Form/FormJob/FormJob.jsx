@@ -5,6 +5,7 @@ import {
   selectformValidetion,
   setValue,
 } from '../../../redax/slices/formValidetionSlice';
+import { fetchAddJob } from '../../../redax/slices/departmentSlice';
 
 export default function FormJob() {
   const dispatch = useDispatch();
@@ -21,8 +22,50 @@ export default function FormJob() {
     );
   };
 
+  const getAllValue = (listInput) => {
+    const listValue = {};
+    Array.from(listInput).forEach(
+      (element) => (listValue[element.name] = element.value)
+    );
+    return listValue;
+  };
+
   const hendleSubmit = (evt) => {
     evt.preventDefault();
+    const listValue = getAllValue(evt.target.querySelectorAll('input'));
+    console.log(listValue);
+    const {
+      discription,
+      foto,
+      remedies,
+      safetyPrecautions,
+      spareParts,
+      nameJob,
+      tools,
+    } = listValue;
+    dispatch(
+      fetchAddJob({
+        idDepartment: localStorage.getItem('idDepartment'),
+        idGroup: localStorage.getItem('idGroup'),
+        idEquipment: localStorage.getItem('idEquipment'),
+        discription,
+        foto,
+        remedies,
+        safetyPrecautions,
+        spareParts,
+        nameJob,
+        tools,
+      })
+    );
+    // console.log(
+    //   discription,
+    //   foto,
+    //   remedies,
+    //   safetyPrecautions,
+    //   spareParts,
+    //   titleJob,
+    //   tools
+    // );
   };
 
   return (
@@ -31,15 +74,15 @@ export default function FormJob() {
       textSubmit="добавить"
       linkExit="/description"
     >
-      <span>{errors.titleJob}</span>
+      <span>{errors.nameJob}</span>
       <input
         pattern="^((?!\s{2}).)*$"
         maxLength={50}
         minLength={5}
-        value={value.titleJob ?? ''}
+        value={value.nameJob ?? ''}
         onChange={(evt) => changeValue(evt)}
         required
-        name="titleJob"
+        name="nameJob"
         placeholder="вид работы"
       />
       <span>{errors.discription}</span>
@@ -51,6 +94,7 @@ export default function FormJob() {
         onChange={(evt) => changeValue(evt)}
         name="discription"
         placeholder="описание"
+        required
       />
       <span>{errors.foto}</span>
       <input

@@ -48,6 +48,19 @@ class DepartmentApi {
       remedies,
       safetyPrecautions,
     } = params;
+    console.log(params);
+    // console.log(
+    //   idDepartment,
+    //   idGroup,
+    //   idEquipment,
+    //   nameJob,
+    //   discription,
+    //   foto,
+    //   tools,
+    //   spareParts,
+    //   remedies,
+    //   safetyPrecautions
+    // );
     return fetch(
       `${this.baseUrl}/equipment/${idDepartment}/${idGroup}/${idEquipment}`,
       {
