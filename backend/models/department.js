@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { regularAvatar } = require('../utils/constants');
+// const { regularAvatar } = require('../utils/constants');
 
 const cardSchema = new mongoose.Schema({
   titleDepartment: {
@@ -31,21 +31,22 @@ const cardSchema = new mongoose.Schema({
         },
         foto: {
           type: String,
-          validate: {
-            validator: (v) => regularAvatar.test(v),
-          },
+          // validate: {
+          //   validator: (v) => regularAvatar.test(v),
+          // },
         },
         tools: {
-          type: String, minlength: 5, maxlength: 500,
+          type: String, maxlength: 500,
         },
         spareParts: {
-          type: String, minlength: 5, maxlength: 500,
+          type: String, maxlength: 500,
         },
         remedies: {
-          type: String, minlength: 5, maxlength: 500,
+          type: String, maxlength: 500,
         },
         safetyPrecautions: {
-          type: String, minlength: 5, maxlength: 500,
+          type: String,
+          maxlength: 500,
         },
       }),
       ],

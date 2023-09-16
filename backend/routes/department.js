@@ -51,11 +51,11 @@ departmentRouter.put('/equipment/:idDepartment/:idGroup/:idEquipment', celebrate
     .keys({
       nameJob: Joi.string().required().min(5).max(50),
       discription: Joi.string().required().min(5).max(500),
-      foto: Joi.string().pattern(regularAvatar),
-      tools: Joi.string().min(5).max(500),
-      spareParts: Joi.string().min(5).max(500),
-      remedies: Joi.string().min(5).max(500),
-      safetyPrecautions: Joi.string().min(5).max(500),
+      foto: Joi.string().allow('').pattern(regularAvatar),
+      tools: Joi.string().allow('').min(5).max(500),
+      spareParts: Joi.string().allow('').min(5).max(500),
+      remedies: Joi.string().allow('').min(5).max(500),
+      safetyPrecautions: Joi.string().allow('').min(5).max(500),
     }).unknown(true),
 }), addIntEquipmentJob);
 

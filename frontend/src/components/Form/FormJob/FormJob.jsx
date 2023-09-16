@@ -33,39 +33,15 @@ export default function FormJob() {
   const hendleSubmit = (evt) => {
     evt.preventDefault();
     const listValue = getAllValue(evt.target.querySelectorAll('input'));
-    console.log(listValue);
-    const {
-      discription,
-      foto,
-      remedies,
-      safetyPrecautions,
-      spareParts,
-      nameJob,
-      tools,
-    } = listValue;
+
     dispatch(
       fetchAddJob({
         idDepartment: localStorage.getItem('idDepartment'),
         idGroup: localStorage.getItem('idGroup'),
         idEquipment: localStorage.getItem('idEquipment'),
-        discription,
-        foto,
-        remedies,
-        safetyPrecautions,
-        spareParts,
-        nameJob,
-        tools,
+        ...listValue,
       })
     );
-    // console.log(
-    //   discription,
-    //   foto,
-    //   remedies,
-    //   safetyPrecautions,
-    //   spareParts,
-    //   titleJob,
-    //   tools
-    // );
   };
 
   return (

@@ -43,11 +43,13 @@ export default function Description() {
               <h3 className="job-description__titl">Вид работы:</h3>
               <p className="job-description__list">{data.nameJob}</p>
               <h3 className="job-description__titl">Фото:</h3>
-              <img
-                className="job-description__foto"
-                src={data.foto}
-                alt={'оборудование'}
-              />
+              {data.foto.length > 0 && (
+                <img
+                  className="job-description__foto"
+                  src={data.foto}
+                  alt={'оборудование'}
+                />
+              )}
               <h3 className="job-description__titl">Описание:</h3>
               <p className="job-description__list">{data.discription}</p>
               <h3 className="job-description__titl">инструмент:</h3>
