@@ -4,10 +4,12 @@ import {
   fetchGetEquipmentId,
   selectDepartment,
   fetchRemoveJob,
-} from '../../../redax/slices/departmentSlice';
-import ButtonsAdd from '../../Buttons/ButtonsAdd/ButtonsAdd';
+} from '../../../../redax/slices/departmentSlice';
+import ButtonsAdd from '../../../Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
-import ButtonExit from '../../Buttons/ButtonExit/ButtonExit';
+import ButtonExit from '../../../Buttons/ButtonExit/ButtonExit';
+import ButtonHome from '../../../Buttons/DuttonHome/ButtonHome';
+import Style from './Description.module.scss';
 
 export default function Description() {
   const dispatch = useDispatch();
@@ -43,7 +45,10 @@ export default function Description() {
 
   return (
     <div className="job-description navigation">
-      <ButtonExit />
+      <div className={Style.button_navigate_conteiner}>
+        <ButtonExit page={'/department'} />
+        <ButtonHome />
+      </div>
       <ButtonsAdd openForm={openForm} />
       <div className="job-description__conteiner">
         <div>

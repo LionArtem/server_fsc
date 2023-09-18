@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './peges/Home/Home';
 
-import Department from './components/Department/Department.jsx';
+import Department from './components/Department/Department';
 import NodFound from './peges/nodFound';
 import FormDepartmen from './components/Form/FormDepartmen/FormDepartmen';
 import FormEquipmentGroup from './components/Form/FormDepartmen/FormEquipmentGroup';
@@ -14,7 +14,7 @@ import { selectAuth } from './redax/slices/authSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
 import FormEquipment from './components/Form/FormDepartmen/FormEquipment';
-import Description from './components/Department/Node/Description';
+import Description from './components/Department/Node/Description/Description';
 import FormJob from './components/Form/FormJob/FormJob';
 
 function App() {

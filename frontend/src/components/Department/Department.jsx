@@ -11,6 +11,10 @@ import DepartmentCard from './DepartmentCard';
 import NodeLink from './Node/NodeLink';
 import ButtonsAdd from '../Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
+import ButtonHome from '../Buttons/DuttonHome/ButtonHome';
+
+import Style from "./Department.module.scss";
+
 
 function Department() {
   const dispatch = useDispatch();
@@ -34,7 +38,10 @@ function Department() {
 
   return (
     <>
-      <h1 className="header-department">{department.titleDepartment}:</h1>
+      <div className={Style.header_conteiner}>
+        <ButtonHome />
+        <h1 className="header-department">{department.titleDepartment}:</h1>
+      </div>
       <ButtonsAdd openForm={openForm} />
       <section className="navigation navigation__cards">
         {department.equipmentGroup &&
