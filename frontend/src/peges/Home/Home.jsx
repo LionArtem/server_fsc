@@ -12,15 +12,26 @@ import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer/Footer';
+import MessageError from '../../components/MessageError/MessageError';
+
+import { selectUser } from '../../redax/slices/userSlice';
+import { isError } from '../../redax/slices/messageErrorSlice';
 
 function Home() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { ListDepartment } = useSelector(selectDepartment);
+  const { admin } = useSelector(selectUser);
 
   const openDepartmentForm = () => {
-    navigate('/form_departmen');
+    if (admin) {
+      navigate('/form_departmen');
+      return;
+    }
+    console.log('нужна регистрация');
+    dispatch(isError(true));
+    setTimeout(() => dispatch(isError(false)), 3000);
   };
 
   React.useEffect(() => {
@@ -29,6 +40,9 @@ function Home() {
 
   return (
     <div className={Style.home}>
+      <MessageError
+        text={'Что бы создать отделение нужно иметь права администратора'}
+      />
       <Header />
       <main className="main">
         <div className={Style.conteiner_interaction}>

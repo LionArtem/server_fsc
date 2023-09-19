@@ -13,6 +13,7 @@ export const fetchGetUser = createAsyncThunk(
 const initialState = {
   user: {},
   logIn: false,
+  admin: false,
 };
 
 const userSlice = createSlice({

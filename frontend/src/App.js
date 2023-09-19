@@ -28,8 +28,6 @@ function App() {
     }
   }, []);
 
-  console.log(logIn);
-
   return (
     <div className="page">
       <Routes>
