@@ -11,7 +11,7 @@ import { killAllStateFormValidetion } from '../../redax/slices/formValidetionSli
 function Footer() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector(selectUser);
+  const { user, logIn } = useSelector(selectUser);
   const { token } = useSelector(selectAuth);
   function resetAll() {
     localStorage.clear();
@@ -23,7 +23,7 @@ function Footer() {
   return (
     <footer className="footer">
       <p className="footer__user-name">{user.name}</p>
-      {token ? (
+      {logIn ? (
         <img
           onClick={() => resetAll()}
           className={Style.login_img}
