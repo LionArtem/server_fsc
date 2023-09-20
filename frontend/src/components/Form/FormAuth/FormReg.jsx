@@ -9,6 +9,7 @@ import {
   setValue,
   selectformValidetion,
 } from '../../../redax/slices/formValidetionSlice';
+import { addUser } from '../../../redax/slices/userSlice';
 
 export default function FormReg() {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ export default function FormReg() {
       })
     ).then((res) => {
       if (res.meta.requestStatus === 'fulfilled') {
+        dispatch(addUser(res));
         dispatch(
           fetchLoginUser({
             email: evt.target.email.value,

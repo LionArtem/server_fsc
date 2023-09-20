@@ -24,18 +24,21 @@ const userSlice = createSlice({
       state.user = {};
       state.logIn = false;
     },
+    addUser(state, { payload }) {
+      state.user = payload.payload;
+      state.logIn = true;
+      state.admin = payload.payload.admin;
+    },
   },
   extraReducers: (builder) => {
     // запрос на получение текущего пользователя
     builder.addCase(fetchGetUser.pending, (state) => {
       console.log('запрос на получение пользователя');
-      //state.showSceletonPage = true;
     });
     builder.addCase(fetchGetUser.fulfilled, (state, { payload }) => {
       state.user = payload;
       state.logIn = true;
-      // localStorage.setItem('userId', payload._id);
-      // state.showSceletonPage = false;
+      state.admin = payload.admin;
     });
     builder.addCase(fetchGetUser.rejected, (state, action) => {
       console.log('ошибка запроса на получение пользователя');
@@ -45,5 +48,5 @@ const userSlice = createSlice({
 
 export const selectUser = (state) => state.user;
 
-export const { killAllStateUser } = userSlice.actions;
+export const { killAllStateUser, addUser } = userSlice.actions;
 export default userSlice.reducer;
