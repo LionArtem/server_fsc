@@ -2,6 +2,11 @@
   display: flex;
   margin-bottom: 10px;
   position: relative;
+  cursor: pointer;
+  transition: opacity .2s linear ;
+}
+.navigation__title:hover {
+  opacity: 0.8;
 }
 
 .navigation__title:last-child {
@@ -9,7 +14,7 @@
 }
 
 .navigation__title::before {
-  content:"";
+  content: '';
   background-image: url(../../../image/бключ.png);
   width: 20px;
   height: 20px;

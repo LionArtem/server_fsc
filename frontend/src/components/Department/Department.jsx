@@ -6,15 +6,14 @@ import {
   fetchGetDepartmentId,
 } from '../../redax/slices/departmentSlice';
 
-import DepartmentCard from './DepartmentCard';
+import DepartmentCard from './DepartmentCard/DepartmentCard';
 
 import NodeLink from './Node/NodeLink';
 import ButtonsAdd from '../Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
 import ButtonHome from '../Buttons/DuttonHome/ButtonHome';
 
-import Style from "./Department.module.scss";
-
+import Style from './Department.module.scss';
 
 function Department() {
   const dispatch = useDispatch();

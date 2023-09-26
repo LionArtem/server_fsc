@@ -1,8 +1,10 @@
 import React from 'react';
-import ButtonsAdd from '../Buttons/ButtonsAdd/ButtonsAdd';
+import Styles from "./DepartmentCard.module.scss";
+
+import ButtonsAdd from '../../Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addIdGroup } from '../../redax/slices/departmentSlice';
+import { addIdGroup } from '../../../redax/slices/departmentSlice';
 
 export default function DepartmentCard(props) {
   const { children, subTitle, idGroup } = props;
@@ -18,7 +20,7 @@ export default function DepartmentCard(props) {
     <div className="navigation__card">
       <h2 className="navigation__text navigation__text-card">{subTitle}</h2>
       <ButtonsAdd openForm={openForm} />
-      <nav>
+      <nav className={Styles.nav_list}>
         <ul className="navigation__list">{children}</ul>
       </nav>
     </div>
