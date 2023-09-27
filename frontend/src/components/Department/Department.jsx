@@ -6,12 +6,10 @@ import {
   fetchGetDepartmentId,
 } from '../../redax/slices/departmentSlice';
 
-import DepartmentCard from './DepartmentCard/DepartmentCard';
-
-import NodeLink from './Node/NodeLink';
-import ButtonsAdd from '../Buttons/ButtonsAdd/ButtonsAdd';
+import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
-import ButtonHome from '../Buttons/DuttonHome/ButtonHome';
+import ButtonHome from '../../components/Buttons/DuttonHome/ButtonHome';
+import { addIdGroup } from '../../redax/slices/departmentSlice';
 
 import Style from './Department.module.scss';
 
@@ -19,7 +17,6 @@ function Department() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { department } = useSelector(selectDepartment);
-  //console.log(department);
 
   React.useEffect(() => {
     dispatch(
@@ -35,6 +32,17 @@ function Department() {
     navigate('/Form_equipment_roup');
   };
 
+  const openFormEquipment = (id) => {
+    dispatch(addIdGroup(id));
+    navigate('/Form_equipment');
+  };
+
+  function onListJob(equipmentId, groupId) {
+    localStorage.setItem('idEquipment', equipmentId);
+    localStorage.setItem('idGroup', groupId);
+    navigate('/description');
+  }
+
   return (
     <>
       <div className={Style.header_conteiner}>
@@ -45,12 +53,29 @@ function Department() {
       <section className="navigation navigation__cards">
         {department.equipmentGroup &&
           department.equipmentGroup.length > 0 &&
-          department.equipmentGroup.map((obj, i) => (
-            <DepartmentCard key={i} idGroup={obj._id} subTitle={obj.titleGroup}>
-              {obj.listEquipment.map((data, i) => (
-                <NodeLink key={i} data={data} idGroup={obj._id} />
-              ))}
-            </DepartmentCard>
+          department.equipmentGroup.map((obj) => (
+            <div key={obj._id} className="navigation__card">
+              <h2 className="navigation__text navigation__text-card">
+                {obj.titleGroup}
+              </h2>
+              <ButtonsAdd openForm={openFormEquipment} id={obj._id} />
+              <nav className={Style.nav_list}>
+                <ul className="navigation__list">
+                  {obj.listEquipment.map((data) => (
+                    <li key={data._id} className="navigation__title">
+                      <h3
+                        onClick={() => {
+                          onListJob(data._id, obj._id);
+                        }}
+                        className="navigation__text"
+                      >
+                        {data.titleEquipment}
+                      </h3>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
           ))}
       </section>
     </>

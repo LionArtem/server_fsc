@@ -4,12 +4,12 @@ import {
   fetchGetEquipmentId,
   selectDepartment,
   fetchRemoveJob,
-} from '../../../../redax/slices/departmentSlice';
-import ButtonsAdd from '../../../Buttons/ButtonsAdd/ButtonsAdd';
+} from '../../redax/slices/departmentSlice';
+import ButtonsAdd from '../Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
-import ButtonExit from '../../../Buttons/ButtonExit/ButtonExit';
-import ButtonHome from '../../../Buttons/DuttonHome/ButtonHome';
-import Style from './Description.module.scss';
+import ButtonExit from '../Buttons/ButtonExit/ButtonExit';
+import ButtonHome from '../Buttons/DuttonHome/ButtonHome';
+import Style from './JobDescription.module.scss';
 
 export default function Description() {
   const dispatch = useDispatch();

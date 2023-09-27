@@ -2,11 +2,11 @@ import React from 'react';
 import Style from './ButtonsAdd.module.scss';
 import plus from '../../../image/33.svg';
 
-export default function ButtonsAdd({ openForm }) {
+export default function ButtonsAdd({ openForm, id }) {
   return (
     <div
       onClick={() => {
-        openForm();
+        openForm(id);
       }}
       className={Style.button}
     >
