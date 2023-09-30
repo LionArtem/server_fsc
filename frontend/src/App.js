@@ -14,7 +14,7 @@ import { selectAuth } from './redax/slices/authSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
 import FormEquipment from './components/Form/FormDepartmen/FormEquipment';
-import JobDescription from './components/JobDiscription/JobDescription';
+import JobDescription from './peges/JobDiscription/JobDescription';
 import FormJob from './components/Form/FormJob/FormJob';
 
 function App() {

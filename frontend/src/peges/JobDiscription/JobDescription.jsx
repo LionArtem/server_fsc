@@ -5,10 +5,10 @@ import {
   selectDepartment,
   fetchRemoveJob,
 } from '../../redax/slices/departmentSlice';
-import ButtonsAdd from '../Buttons/ButtonsAdd/ButtonsAdd';
+import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
-import ButtonExit from '../Buttons/ButtonExit/ButtonExit';
-import ButtonHome from '../Buttons/DuttonHome/ButtonHome';
+import ButtonExit from '../../components/Buttons/ButtonExit/ButtonExit';
+import ButtonHome from '../../components/Buttons/DuttonHome/ButtonHome';
 import Style from './JobDescription.module.scss';
 
 export default function Description() {

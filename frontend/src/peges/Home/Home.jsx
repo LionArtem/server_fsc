@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './Home.module.scss';
 
-import NavigationListLinks from '../../components/NavigationListLinks';
+import NavigationListLinks from '../../components/NavigationDepartment/NavigationDepartment';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectDepartment,
@@ -10,7 +10,7 @@ import {
 import Search from '../../components/search/Search';
 import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import MessageError from '../../components/MessageError/MessageError';
 

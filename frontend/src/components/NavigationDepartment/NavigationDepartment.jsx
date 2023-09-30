@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addDepartment } from '../redax/slices/departmentSlice';
+import { addDepartment } from '../../redax/slices/departmentSlice';
 
 function NavigationListLinks(props) {
   const { data } = props;
