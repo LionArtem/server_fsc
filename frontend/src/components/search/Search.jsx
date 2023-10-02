@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Fuse from 'fuse.js';
+//import Fuse from 'fuse.js';
 
 import style from './Search.module.scss';
 
-import { searchList } from '../.././utils/constants';
+//import { searchList } from '../.././utils/constants';
 import Found from '../../image/search.svg';
 
 export default function Search() {
@@ -13,11 +13,12 @@ export default function Search() {
 
   const [botton, setBotton] = React.useState(false);
 
-  const fuse = new Fuse(searchList, {
-    keys: ['value'],
-  });
+  // const fuse = new Fuse(searchList, {
+  //   keys: ['value'],
+  // });
 
-  const matches = fuse.search(inputValue);
+  // const matches = fuse.search(inputValue);
+  const matches = [];// что бы не было ошибки 
 
   const offEarch = () => {
     setBotton(false);
@@ -53,7 +54,7 @@ export default function Search() {
       </div>
 
       {botton && !!matches.length && (
-        <Link to={matches[0].item.link}>
+        <Link to={matches[0].item?.link}>
           <div
             className={style.button}
             onClick={() => {
@@ -74,11 +75,11 @@ export default function Search() {
               <li
                 key={i}
                 onClick={() => {
-                  setInputValue(obj.item.value);
+                  setInputValue(obj.item?.value);
                   setBotton(true);
                 }}
               >
-                {obj.item.value}
+                {obj.item?.value}
               </li>
             ))}
           </ul>

@@ -1,3 +1,5 @@
+import { PORT } from '../utils/constants';
+
 class UserApi {
   constructor({ baseUrl, headers }) {
     this.baseUrl = baseUrl;
@@ -41,7 +43,7 @@ class UserApi {
 }
 
 const usersApi = new UserApi({
-  baseUrl: 'http://localhost:3000/users',
+  baseUrl: `http://localhost:${PORT}/users`,
   // baseUrl: 'https://api.my-live.website/users',
   headers: {
     authorization: `Bearer ${localStorage.getItem('token')}`,

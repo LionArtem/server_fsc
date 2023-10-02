@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './peges/Home/Home';
 
-import Department from './components/Department/Department';
+import Department from './peges/Department/Department';
 import NodFound from './peges/nodFound';
 import FormDepartmen from './components/Form/FormDepartmen/FormDepartmen';
 import FormEquipmentGroup from './components/Form/FormDepartmen/FormEquipmentGroup';

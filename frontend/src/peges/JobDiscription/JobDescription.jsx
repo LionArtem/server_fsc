@@ -16,7 +16,6 @@ export default function Description() {
   const navigate = useNavigate();
 
   const { listJobsEquipment } = useSelector(selectDepartment);
-  // console.log(listJobsEquipment);
 
   React.useEffect(() => {
     dispatch(
@@ -45,17 +44,13 @@ export default function Description() {
 
   return (
     <div className="job-description navigation">
-      <div className={Style.button_navigate_conteiner}>
+      <div className={Style.job_description_header}>
         <ButtonExit page={'/department'} />
         <ButtonHome />
+        <h1 className={Style.title}>{listJobsEquipment.titleEquipment}</h1>
+        <ButtonsAdd openForm={openForm} />
       </div>
-      <ButtonsAdd openForm={openForm} />
       <div className="job-description__conteiner">
-        <div>
-          <p className="job-description__text">
-            {listJobsEquipment.titleEquipment}
-          </p>
-        </div>
         {listJobsEquipment.listJobs &&
           listJobsEquipment.listJobs.map((data) => (
             <div key={data._id}>
