@@ -78,6 +78,9 @@ const departmentSlice = createSlice({
   name: 'department',
   initialState,
   reducers: {
+    setListJobsEquipment(state, action) {
+      state.listJobsEquipment.listJobs = action.payload;
+    },
     killAllStateDepartment(state) {
       state.idGroup = '';
     },
@@ -181,7 +184,6 @@ const departmentSlice = createSlice({
       // state.textAnswerRequest = 'при отправки сообщения произошла ошибка';
     });
 
-    
     builder.addCase(fetchAddJob.pending, (state) => {
       console.log('добавление работы по оборудованию');
       // state.showPreloader = true;
@@ -189,7 +191,7 @@ const departmentSlice = createSlice({
     builder.addCase(fetchAddJob.fulfilled, (state, { payload }) => {
       //state.showPreloader = false;
       //state.listJobsEquipment = payload;
-      console.log(payload);
+      //console.log(payload);
     });
     builder.addCase(fetchAddJob.rejected, (state, action) => {
       console.log('ошибка добавление работы по оборудованию');
@@ -204,7 +206,7 @@ const departmentSlice = createSlice({
     builder.addCase(fetchRemoveJob.fulfilled, (state, { payload }) => {
       //state.showPreloader = false;
       //state.listJobsEquipment = payload;
-      console.log(payload);
+      //console.log(payload);
     });
     builder.addCase(fetchRemoveJob.rejected, (state, action) => {
       console.log('ошибка удаления работы по оборудованию');
@@ -215,5 +217,6 @@ const departmentSlice = createSlice({
 });
 
 export const selectDepartment = (state) => state.department;
-export const { addDepartment, addIdGroup } = departmentSlice.actions;
+export const { addDepartment, addIdGroup, setListJobsEquipment } =
+  departmentSlice.actions;
 export default departmentSlice.reducer;

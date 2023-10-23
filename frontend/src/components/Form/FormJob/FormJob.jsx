@@ -6,8 +6,10 @@ import {
   setValue,
 } from '../../../redax/slices/formValidetionSlice';
 import { fetchAddJob } from '../../../redax/slices/departmentSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormJob() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { value, errors } = useSelector(selectformValidetion);
 
@@ -41,7 +43,11 @@ export default function FormJob() {
         idEquipment: localStorage.getItem('idEquipment'),
         ...listValue,
       })
-    );
+    ).then((res) => {
+      if (res.meta.requestStatus === 'fulfilled') {
+        navigate('/description');
+      }
+    });
   };
 
   return (

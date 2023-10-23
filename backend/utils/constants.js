@@ -9,7 +9,7 @@ const regularLink = /^(ftp|http|https):\/\/[^ "]+$/;
 const regularEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
 const listDomen = [
-  'http://localhost:3001',
+  'http://localhost:3002',
 ];
 
 module.exports = {

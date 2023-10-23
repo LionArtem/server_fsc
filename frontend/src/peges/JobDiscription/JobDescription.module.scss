@@ -5,6 +5,16 @@
   column-gap: 10px;
 }
 
-.title{
+.title {
   margin: 0 auto;
 }
+
+.container_title {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(118, 117, 117);
+  border-bottom: 1px solid rgb(118, 117, 117);
+  column-gap: 10px;
+  margin-bottom: 12px;
+}
+

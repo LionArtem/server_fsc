@@ -12,7 +12,7 @@ const NotFoundError = require('./errors/not-found-err');
 const centralErrorHandling = require('./middlewares/centralErrorHandling');
 const { listDomen } = require('./utils/constants');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 
 app.use(express.json()); // для собирания JSON-формата

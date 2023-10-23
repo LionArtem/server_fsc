@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchGetEquipmentId,
   selectDepartment,
   fetchRemoveJob,
+  setListJobsEquipment,
 } from '../../redax/slices/departmentSlice';
 import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
@@ -12,10 +13,13 @@ import ButtonHome from '../../components/Buttons/DuttonHome/ButtonHome';
 import Style from './JobDescription.module.scss';
 
 export default function Description() {
+  const [discription, setDiscription] = useState(false);
+  const [idDiscription, isIdDiscription] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { listJobsEquipment } = useSelector(selectDepartment);
+ // console.log(listJobsEquipment);
 
   React.useEffect(() => {
     dispatch(
@@ -39,7 +43,21 @@ export default function Description() {
         idEquipment: localStorage.getItem('idEquipment'),
         idJob: id,
       })
-    );
+    ).then((res) => {
+      if (res.meta.requestStatus === 'fulfilled') {
+        console.log(res.payload.idJob);
+        const newListJobs = listJobsEquipment.listJobs.filter(
+          (job) => job._id !== res.payload.idJob
+        );
+
+        dispatch(setListJobsEquipment(newListJobs));
+      }
+    });
+  }
+
+  function showDiscription(data) {
+    isIdDiscription(data._id);
+    setDiscription(!discription);
   }
 
   return (
@@ -54,32 +72,46 @@ export default function Description() {
         {listJobsEquipment.listJobs &&
           listJobsEquipment.listJobs.map((data) => (
             <div key={data._id}>
-              <h3 className="job-description__titl">
-                Вид работы:
+              <div className={Style.container_title}>
+                <h3 className="job-description__titl">Вид работы:</h3>
+                <p
+                  onClick={() => showDiscription(data)}
+                  className="job-description__list"
+                >
+                  {data.nameJob}
+                </p>
                 <div onClick={() => removeJob(data._id)}>удалить</div>
-              </h3>
-              <p className="job-description__list">{data.nameJob}</p>
-              <h3 className="job-description__titl">Фото:</h3>
-              {data.foto.length > 0 && (
-                <img
-                  className="job-description__foto"
-                  src={data.foto}
-                  alt={'оборудование'}
-                />
-              )}
-              <h3 className="job-description__titl">Описание:</h3>
-              <p className="job-description__list">{data.discription}</p>
-              <h3 className="job-description__titl">инструмент:</h3>
-              <p className="job-description__list">{data.tools}</p>
-              <h3 className="job-description__titl">Запчасти,метизы:</h3>
-              <p className="job-description__list">{data.spareParts}</p>
-              <h3 className="job-description__titl">СИЗ:</h3>
-              <p className="job-description__list">{data.safetyPrecautions}</p>
-              <h3 className="job-description__titl">Мероприятия по ТБ:</h3>
-              <p className="job-description__list">{data.spareParts}</p>
-              {/* <button className="job-description__button-comment" type="button">
+              </div>
+              {discription && idDiscription === data._id ? (
+                <>
+                  {' '}
+                  <h3 className="job-description__titl">Фото:</h3>
+                  {data.foto.length > 0 && (
+                    <img
+                      className="job-description__foto"
+                      src={data.foto}
+                      alt={'оборудование'}
+                    />
+                  )}
+                  <h3 className="job-description__titl">Описание:</h3>
+                  <p className="job-description__list">{data.discription}</p>
+                  <h3 className="job-description__titl">инструмент:</h3>
+                  <p className="job-description__list">{data.tools}</p>
+                  <h3 className="job-description__titl">Запчасти,метизы:</h3>
+                  <p className="job-description__list">{data.spareParts}</p>
+                  <h3 className="job-description__titl">СИЗ:</h3>
+                  <p className="job-description__list">
+                    {data.safetyPrecautions}
+                  </p>
+                  <h3 className="job-description__titl">Мероприятия по ТБ:</h3>
+                  <p className="job-description__list">{data.spareParts}</p>
+                  {/* <button className="job-description__button-comment" type="button">
           Комментарии
         </button> */}
+                </>
+              ) : (
+                ''
+              )}
             </div>
           ))}
       </div>

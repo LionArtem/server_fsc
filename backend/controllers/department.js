@@ -231,7 +231,7 @@ const deleteJob = (req, res, next) => {
           if (equipment.listJobs.id(idJob)) {
             equipment.listJobs.id(idJob).deleteOne();
             department.save().then(() => {
-              res.send(equipment);
+              res.send({ idJob });
             });
           } else {
             throw new NotFoundError('работа с таким id не найдена');
