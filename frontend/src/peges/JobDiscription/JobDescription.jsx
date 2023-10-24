@@ -19,7 +19,7 @@ export default function Description() {
   const navigate = useNavigate();
 
   const { listJobsEquipment } = useSelector(selectDepartment);
- // console.log(listJobsEquipment);
+  // console.log(listJobsEquipment);
 
   React.useEffect(() => {
     dispatch(
@@ -66,7 +66,7 @@ export default function Description() {
         <ButtonExit page={'/department'} />
         <ButtonHome />
         <h1 className={Style.title}>{listJobsEquipment.titleEquipment}</h1>
-        <ButtonsAdd openForm={openForm} />
+        <ButtonsAdd openForm={openForm} textClue={'Добавить работу'} />
       </div>
       <div className="job-description__conteiner">
         {listJobsEquipment.listJobs &&

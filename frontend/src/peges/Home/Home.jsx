@@ -46,7 +46,10 @@ function Home() {
       <Header />
       <main className="main">
         <div className={Style.conteiner_interaction}>
-          <ButtonsAdd openForm={openDepartmentForm} />
+          <ButtonsAdd
+            openForm={openDepartmentForm}
+            textClue={'Добавить отделение'}
+          />
           <Search />
         </div>
         <section className="navigation">

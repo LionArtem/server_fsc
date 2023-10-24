@@ -49,7 +49,7 @@ function Department() {
         <ButtonHome />
         <h1 className="header-department">{department.titleDepartment}:</h1>
       </div>
-      <ButtonsAdd openForm={openForm} />
+      <ButtonsAdd openForm={openForm} textClue={'Добвить оборудование'} />
       <section className="navigation navigation__cards">
         {department.equipmentGroup &&
           department.equipmentGroup.length > 0 &&
@@ -58,7 +58,11 @@ function Department() {
               <h2 className="navigation__text navigation__text-card">
                 {obj.titleGroup}
               </h2>
-              <ButtonsAdd openForm={openFormEquipment} id={obj._id} />
+              <ButtonsAdd
+                openForm={openFormEquipment}
+                id={obj._id}
+                textClue={'Добвить группу оборудования'}
+              />
               <nav className={Style.nav_list}>
                 <ul className="navigation__list">
                   {obj.listEquipment.map((data) => (
