@@ -10,6 +10,8 @@ import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
 import ButtonExit from '../../components/Buttons/ButtonExit/ButtonExit';
 import ButtonHome from '../../components/Buttons/DuttonHome/ButtonHome';
+import buttonDelete from '../../image/23.svg';
+
 import Style from './JobDescription.module.scss';
 
 export default function Description() {
@@ -80,7 +82,12 @@ export default function Description() {
                 >
                   {data.nameJob}
                 </p>
-                <div onClick={() => removeJob(data._id)}>удалить</div>
+                <div
+                  className={Style.button_delete}
+                  onClick={() => removeJob(data._id)}
+                >
+                  <img src={buttonDelete} alt="урна" />
+                </div>
               </div>
               {discription && idDiscription === data._id ? (
                 <>
