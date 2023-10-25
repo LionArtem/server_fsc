@@ -9,10 +9,10 @@ import {
 import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
 import ButtonExit from '../../components/Buttons/ButtonExit/ButtonExit';
-import ButtonHome from '../../components/Buttons/DuttonHome/ButtonHome';
-import buttonDelete from '../../image/23.svg';
+import ButtonHome from '../../components/Buttons/ButtonHome/ButtonHome';
 
 import Style from './JobDescription.module.scss';
+import ButtonDelete from '../../components/Buttons/ButtonDelete/ButtonDelete';
 
 export default function Description() {
   const [discription, setDiscription] = useState(false);
@@ -21,7 +21,6 @@ export default function Description() {
   const navigate = useNavigate();
 
   const { listJobsEquipment } = useSelector(selectDepartment);
-  // console.log(listJobsEquipment);
 
   React.useEffect(() => {
     dispatch(
@@ -82,16 +81,10 @@ export default function Description() {
                 >
                   {data.nameJob}
                 </p>
-                <div
-                  className={Style.button_delete}
-                  onClick={() => removeJob(data._id)}
-                >
-                  <img src={buttonDelete} alt="урна" />
-                </div>
+                <ButtonDelete id={data._id} remove={removeJob} />
               </div>
               {discription && idDiscription === data._id ? (
                 <>
-                  {' '}
                   <h3 className="job-description__titl">Фото:</h3>
                   {data.foto.length > 0 && (
                     <img

@@ -8,7 +8,7 @@ import {
 
 import ButtonsAdd from '../../components/Buttons/ButtonsAdd/ButtonsAdd';
 import { useNavigate } from 'react-router-dom';
-import ButtonHome from '../../components/Buttons/DuttonHome/ButtonHome';
+import ButtonHome from '../../components/Buttons/ButtonHome/ButtonHome';
 import { addIdGroup } from '../../redax/slices/departmentSlice';
 
 import Style from './Department.module.scss';
@@ -49,7 +49,10 @@ function Department() {
         <ButtonHome />
         <h1 className="header-department">{department.titleDepartment}:</h1>
       </div>
-      <ButtonsAdd openForm={openForm} textClue={'Добвить оборудование'} />
+      <ButtonsAdd
+        openForm={openForm}
+        textClue={'Добвить группу оборудования'}
+      />
       <section className="navigation navigation__cards">
         {department.equipmentGroup &&
           department.equipmentGroup.length > 0 &&
@@ -61,7 +64,7 @@ function Department() {
               <ButtonsAdd
                 openForm={openFormEquipment}
                 id={obj._id}
-                textClue={'Добвить группу оборудования'}
+                textClue={'Добвить оборудование'}
               />
               <nav className={Style.nav_list}>
                 <ul className="navigation__list">

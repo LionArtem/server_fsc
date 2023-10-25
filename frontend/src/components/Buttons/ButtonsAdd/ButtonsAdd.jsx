@@ -24,8 +24,8 @@ export default function ButtonsAdd({ openForm, id, textClue }) {
 
   return (
     <div
-      onMouseEnter={() => showСlue()}
-      onMouseLeave={() => {
+      onPointerEnter={() => showСlue()}
+      onPointerLeave={() => {
         clearTimeout(timeOutClue);
         toggleClue(false);
       }}
