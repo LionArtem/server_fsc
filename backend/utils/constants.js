@@ -10,6 +10,7 @@ const regularEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
 const listDomen = [
   'http://localhost:3002',
+  'http://localhost:3000',
 ];
 
 module.exports = {
