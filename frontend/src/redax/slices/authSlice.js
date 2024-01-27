@@ -70,7 +70,7 @@ const authSlice = createSlice({
       console.log('запрос на авторизацию');
     });
     builder.addCase(fetchLoginUser.fulfilled, (state, { payload }) => {
-      //console.log(payload.token);
+      //console.log(payload);
       localStorage.setItem('token', payload.token);
       state.token = payload.token;
     });

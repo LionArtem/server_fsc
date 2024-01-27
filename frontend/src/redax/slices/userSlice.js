@@ -33,7 +33,7 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     // запрос на получение текущего пользователя
     builder.addCase(fetchGetUser.pending, (state) => {
-      console.log('запрос на получение пользователя');
+     // console.log('запрос на получение пользователя');
     });
     builder.addCase(fetchGetUser.fulfilled, (state, { payload }) => {
       state.user = payload;

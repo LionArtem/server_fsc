@@ -98,7 +98,7 @@ const departmentSlice = createSlice({
     });
     builder.addCase(fetchAddNewDepartment.fulfilled, (state, { payload }) => {
       // state.showPreloader = false;
-      //console.log(payload);
+      console.log(payload);
     });
     builder.addCase(fetchAddNewDepartment.rejected, (state, action) => {
       console.log('ошибка добавления отделения');
@@ -107,7 +107,7 @@ const departmentSlice = createSlice({
     });
 
     builder.addCase(fetchGetAllDepartment.pending, (state) => {
-      console.log('получение списка всех отделений');
+      //console.log('получение списка всех отделений');
       // state.showPreloader = true;
     });
     builder.addCase(fetchGetAllDepartment.fulfilled, (state, { payload }) => {
