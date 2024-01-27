@@ -5,16 +5,13 @@ const NotFoundError = require('../errors/not-found-err');
 
 const createDepartment = (req, res, next) => {
   const { titleDepartment } = req.body;
-  console.log(titleDepartment);
   Department.create({
     titleDepartment,
   })
     .then((newDepartment) => {
-      console.log(newDepartment);
       res.status(201).send(newDepartment);
     })
     .catch((err) => {
-      console.log(err);
       if (err.name === 'ValidationError') {
         throw new IncorrectErr('Не корректные данные');
       } else {
@@ -86,6 +83,7 @@ const addEquipmentGroup = (req, res, next) => {
     idDepartment,
   )
     .then((resDepartment) => {
+      // console.log(resDepartment);
       if (resDepartment) {
         resDepartment.equipmentGroup.push({ titleGroup });
         resDepartment.save();

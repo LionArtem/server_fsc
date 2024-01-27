@@ -98,7 +98,7 @@ const departmentSlice = createSlice({
     });
     builder.addCase(fetchAddNewDepartment.fulfilled, (state, { payload }) => {
       // state.showPreloader = false;
-      console.log(payload);
+      //console.log(payload);
     });
     builder.addCase(fetchAddNewDepartment.rejected, (state, action) => {
       console.log('ошибка добавления отделения');
@@ -111,7 +111,7 @@ const departmentSlice = createSlice({
       // state.showPreloader = true;
     });
     builder.addCase(fetchGetAllDepartment.fulfilled, (state, { payload }) => {
-      // state.showPreloader = false;
+     console.log(payload);
       state.ListDepartment = payload;
     });
     builder.addCase(fetchGetAllDepartment.rejected, (state, action) => {
@@ -143,7 +143,7 @@ const departmentSlice = createSlice({
       fetchAddEquipmentDepartment.fulfilled,
       (state, { payload }) => {
         // state.showPreloader = false;
-        //console.log(payload);
+        console.log(payload);
       }
     );
     builder.addCase(fetchAddEquipmentDepartment.rejected, (state, action) => {
